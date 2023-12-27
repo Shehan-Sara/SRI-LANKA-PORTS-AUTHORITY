@@ -23,4 +23,28 @@ Route::get('/login', function () {
 
 Route::get('/home', function () {
     return view('admin.home');
-});
+})->name('AdminHome');
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+})->name('AdminDashboard');
+
+Route::get('/localpurchase', function () {
+    return view('admin.local');
+})->name('AdminLocal');
+
+Route::get('/foreignpurchase', function () {
+    return view('admin.foreign');
+})->name('AdminForeign');
+
+Route::get('/otherpurchase', function () {
+    return view('admin.other');
+})->name('AdminOther');
+
+Route::get('/massages', function () {
+    return view('admin.massages');
+})->name('AdminMassages');
+
+Route::get('/users', function () {
+    return view('admin.users');
+})->name('AdminUsers');
