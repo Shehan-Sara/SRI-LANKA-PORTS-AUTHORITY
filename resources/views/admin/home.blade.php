@@ -2,13 +2,16 @@
 
 <div class="container-fluid">
     <div class="row">
-    <div class="col-md-2">
-        <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 230px;">
-            <div class="logo">
-                <img width="100%" src="https://www.slpa.lk/application_resources/images/logo_1.png" alt="Company Logo">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">                
+                    <img width="80%" src="https://www.slpa.lk/application_resources/images/logo_1.png" alt="Company Logo">                
+              </a>
             </div>
-            
-            <hr>
+          </nav>
+    <div class="col-md-2">
+        <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary" style="width: 230px;">               
+           
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
                 <a href="#" class="nav-link active" aria-current="page">
@@ -92,15 +95,83 @@
             </div>
           </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="container">
-            <h1>dsfd fgdsg fghf ghfhtrh fdbd ffcb fhtfg fghcvbc</h1>
-        </div>
-        
+            <div class="card mb-3 border-0" style="max-width: 780px;">
+                <div class="row g-0">
+                    <div class="col-md-9">
+                        <h5 class="card-title">Welcome Back Admin Name</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card-body">
+                            <img src="images/Admin.svg" width="80%" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
             
-       
-        
+        </div>      
     </div>
+
+    <div class="col-md-4">
+        <div class="container-fluid">
+            <div class="card mb-3 border-0" style="max-width: 580px;">
+                <div class="row g-0">
+                    <div class="col-md-7">
+                        <h5 class="card-title">Great News</h5>
+                        <h5 class="card-title">S.L.P.A V 1.0 is HERE</h5>
+                        <p class="card-text">This is a wider This content is a little bit longer.</p>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card-body">
+                            <img src="images/wow.gif" width="100%" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Whats New
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      How to Use
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Notices
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>      
+    </div>
+
 </div>
   </div>
   
