@@ -36,6 +36,8 @@ Route::get('/foreignpurchase', [TenderController::class, 'viewForign'])->name('A
 
 Route::get('/otherpurchase', [TenderController::class, 'viewOther'])->name('AdminOther');
 
+Route::get('/recorddelete/{id}', [TenderController::class, 'deleteRecord'])->name('DeleteRecord');
+
 
 Route::get('/massages', function () {
     return view('admin.massages');

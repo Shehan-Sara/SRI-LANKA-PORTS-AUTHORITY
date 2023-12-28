@@ -47,4 +47,11 @@ class TenderController extends Controller
         return view('admin.other', compact('tender'));
     }
 
+    public function deleteRecord($id)
+    {
+        $record = Tender::find($id);
+        $record->delete();
+        return redirect()->back();
+    }
+
 }
