@@ -10,6 +10,19 @@ class TenderController extends Controller
 {
     public function addrecord(Request $request)
     {
+
+        // $request->validate([
+        //     'id' => 'required|min:1|max:20',
+        //     'name' => 'required|min:5|max:30',
+        //     'des' => 'required|min:20|max:100',
+        //     'type' => 'required',
+        //     'Category' => 'required',
+        //     'amount' => 'required|regex:/^[^$€£]+$/|numeric',
+        //     'status' => 'required',
+        //     'date' => 'required',
+
+        // ]);
+
         //dd($request->all());
         //$pdfName = $request->file('pdffile')->getClientOriginalName();
         //$request->file('pdffile')->move(public_path('pdf'), $pdfName);
@@ -27,6 +40,8 @@ class TenderController extends Controller
         $tender->ClosedDate = $request->date;
         $tender->Author = $request->user;
         $tender->save();
+
+        return view('admin.home');
     }
 
     public function viewLocal()
@@ -49,7 +64,7 @@ class TenderController extends Controller
 
     public function deleteRecord($id)
     {
-        $record = Tender::find($id);
+        $record = Tender::orderBy('id', 'asc')->find($id);
         $record->delete();
         return redirect()->back();
     }

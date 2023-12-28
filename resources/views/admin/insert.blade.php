@@ -1,7 +1,7 @@
 @include('layout.bootstrap')
 
 <div class="container-fluid">
-    <form action="{{ route('AddRecord') }}" method="POST">
+    <form class="needs-validation" action="{{ route('AddRecord') }}" method="POST">
         @csrf
     <div class="row">
         @include('layout.nav')
@@ -121,7 +121,10 @@
                   <div class="mb-3 row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Bid Sec. Amount (Rs.)</label>
                     <div class="col-sm-9">
-                      <input type="Number" class="form-control" id="inputPassword" name="amount">
+                      <input type="Number" class="form-control" id="inputPassword" name="amount" min="0" required>
+                      <div class="invalid-feedback">
+                        Please select a Amount.
+                      </div>
                     </div>
                   </div>
 
