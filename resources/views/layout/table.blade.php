@@ -41,7 +41,11 @@
         <tbody>
           @if($tender->isEmpty())
           <tr>
-            <td colspan="9" class="table-active">No Any Records</td>
+            <td colspan="9" class="table-active">
+              <center>
+              <img src="images/Taken.svg" width="20%" alt="">
+              <br> No Any Records</td>
+            </center>
           </tr>
                     
                     @else
