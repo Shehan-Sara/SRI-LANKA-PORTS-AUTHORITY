@@ -1,6 +1,8 @@
 @include('layout.bootstrap')
 
 <div class="container-fluid">
+    <form action="{{ route('AddRecord') }}" method="POST">
+        @csrf
     <div class="row">
         @include('layout.nav')
     <div class="col-md-2">
@@ -8,7 +10,7 @@
            
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
-                <a href="{{ route('AdminHome') }}" class="nav-link active" aria-current="page">
+                <a href="{{ route('AdminHome') }}" class="nav-link link-body-emphasis" aria-current="page">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
                         <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4z"/>
                       </svg>
@@ -74,83 +76,154 @@
           </div>
     </div>
     
+    
     <div class="col-md-6">
-        <div class="container">
-            <div class="card mb-3 border-0" style="max-width: 780px;">
-                <div class="row g-0">
-                    <div class="col-md-9">
-                        <h5 class="card-title">Welcome Back Admin Name</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <div class="container"> 
+        
+        <h5 class="mb-3">ADD NEW PROCUREMENT</h5>
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">General Details</h5>
+
+                <div class="mb-3 row">
+                    <label for="inputID" class="col-sm-3 col-form-label">Tender ID</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputID" name="id">
                     </div>
-                    <div class="col-md-3">
-                        <div class="card-body">
-                            <img src="images/Admin.svg" width="80%" alt="...">
-                        </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="inputName" class="col-sm-3 col-form-label">Display Name</label>
+                    <div class="col-sm-9">
+                      <input type="text" class="form-control" id="inputName" name="name">
                     </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="inputDescription" class="col-sm-3 col-form-label">Tender Description</label>
+                    <div class="col-sm-9">
+                      <input type="Text box" class="form-control" id="inputDescription" name="des">
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="inputDescription" class="col-sm-3 col-form-label">Tender Equipment Type</label>
+                    <div class="col-sm-9">
+                        <select class="form-select" aria-label="Default select example" name="type">
+                            <option selected>Open the equipment type</option>
+                            <option value="ELECTRICAL EQUIPMENT">ELECTRICAL EQUIPMENT</option>
+                            <option value="MECHANICAL EQUIPMENT">MECHANICAL EQUIPMENT</option>
+                            <option value="OTHER MATERIALS & EQUIPMENT">OTHER MATERIALS & EQUIPMENT</option>
+                          </select>
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-3 col-form-label">Bid Sec. Amount (Rs.)</label>
+                    <div class="col-sm-9">
+                      <input type="Number" class="form-control" id="inputPassword" name="amount">
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-3 col-form-label">Close Date</label>
+                    <div class="col-sm-9">
+                      <input type="date" class="form-control" id="inputPassword" name="date">
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="inputPassword" class="col-sm-3 col-form-label">Upload Document</label>
+                    <div class="col-sm-9">
+                      <input type="file" class="form-control" name="pdffile" id="fileInput" accept=".pdf">
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-3 col-form-label">Publishr By</label>
+                    <div class="col-sm-9">
+                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Admin Name" name="user">
+                    </div>
+                  </div>
+                  
+            </div>
+          </div>
+          
+      </div>      
+  </div>
+
+  <div class="col-md-4">
+    <div class="container"> 
+      <div class="card border-0">
+        <div class="row g-0">
+            <div class="col-md-10">
+                <div class="card-body">
+                    <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 10%"></div>
+                      </div>
+                  </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card-body">
+                    10%
                 </div>
             </div>
-            
-        </div>      
-    </div>
+        </div>
 
-    <div class="col-md-4">
-        <div class="container-fluid">
-            <div class="card mb-3 border-0" style="max-width: 580px;">
-                <div class="row g-0">
-                    <div class="col-md-7">
-                        
-                        <h5 class="card-title">S.L.P.A V 1.0 is HERE</h5>
-                        <p class="card-text">This is a wider This content is a little bit longer.</p>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="card-body">
-                            <img src="images/wow.gif" width="100%" alt="...">
-                        </div>
-                    </div>
-                </div>
+        <div class="card mb-3 ">            
+            <div class="card-body">
+                <h5 class="card-title mb-3">Tender Preview</h5>
+                add
             </div>
+          </div>
 
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Whats New
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+          
+
+          <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">SET UP</h5>
+              
+                <div class="mb-3 row">
+                    <label for="inputDescription" class="col-sm-4 col-form-label">PROCUREMENT TYPE</label>
+                    <div class="col-sm-8">
+                        <select class="form-select" aria-label="Default select example" name="Category">
+                            <option selected>SELECT PROCUREMENT TYPE</option>
+                            <option value="2">FOREIGN-PURCHASES</option>
+                            <option value="1">LOCAL-PURCHASES</option>
+                            <option value="3">OTHER-PURCHASES</option>
+                          </select>
                     </div>
                   </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      How to Use
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+
+                  <div class="mb-3 row">
+                    <label for="inputDescription" class="col-sm-4 col-form-label">Tender Status</label>
+                    <div class="col-sm-8">
+                        <select class="form-select" aria-label="Default select example" name="status">
+                            <option value="0" selected>Active</option>
+                            <option value="1">Deactive</option>
+                            <option value="2">Compleet</option>
+                            <option value="3">Three</option>
+                          </select>
                     </div>
                   </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Notices
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>      
-    </div>
+
+            </div>
+          </div>
+
+          <div class="card mb-3 ">            
+            <div class="card-body">
+                <button type="submit"> Submit</button>
+              
+                
+            </div>
+          </div>
+    </div>      
+</div>
+
+
 
 </div>
+
+        </form>
   </div>
   
