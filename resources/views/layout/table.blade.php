@@ -39,6 +39,8 @@
           </tr>
         </thead>
         <tbody>
+          @php $num = 0;
+          @endphp
           @if($tender->isEmpty())
           <tr>
             <td colspan="9" class="table-active">
@@ -49,9 +51,13 @@
           </tr>
                     
                     @else
-                    @foreach($tender as $Tender)
+                    @foreach($tender ->sortByDesc('id') as $Tender)
+
+          @php $num ++;
+          @endphp
+                    
           <tr>
-            <th scope="row">1</th>
+            <th scope="row">{{$num}}</th>
             <td>{{ $Tender->TenderNo }}</td>
             <td>{{ $Tender->Name }}</td>
             <td>{{ $Tender->Type }}</td>
