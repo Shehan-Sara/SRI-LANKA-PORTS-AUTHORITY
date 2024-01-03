@@ -11,21 +11,21 @@ class TenderController extends Controller
     public function addrecord(Request $request)
     {
 
-        // $request->validate([
-        //     'id' => 'required|min:1|max:20',
-        //     'name' => 'required|min:5|max:30',
-        //     'des' => 'required|min:20|max:100',
-        //     'type' => 'required',
-        //     'Category' => 'required',
-        //     'amount' => 'required|regex:/^[^$€£]+$/|numeric',
-        //     'status' => 'required',
-        //     'date' => 'required',
+        $request->validate([
+            'id' => 'required|min:1|max:20',
+            'name' => 'required|min:5|max:30',
+            'des' => 'required|min:20|max:100',
+            'type' => 'required',
+            'Category' => 'required',
+            'amount' => 'required|numeric',
+            'status' => 'required',
+            'date' => 'required',
+        ]);
 
-        // ]);
+        $pdfName = $request->file('pdffile')->getClientOriginalName();
+        $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
 
         //dd($request->all());
-        //$pdfName = $request->file('pdffile')->getClientOriginalName();
-        //$request->file('pdffile')->move(public_path('pdf'), $pdfName);
 
         $tender = new Tender();
         $tender->TenderNo = $request->id;
@@ -34,8 +34,8 @@ class TenderController extends Controller
         $tender->Type = $request->type;
         $tender->Category = $request->Category;
         $tender->Ammount = $request->amount;
-        $tender->AttachmentPath = '/pdf/';
-        $tender->AttachementName = '$pdfName';
+        $tender->AttachmentPath = '/pdf/' . $request->id . '.pdf';
+        $tender->AttachementName = $request->id;
         $tender->Status = $request->status;
         $tender->ClosedDate = $request->date;
         $tender->Author = $request->user;
