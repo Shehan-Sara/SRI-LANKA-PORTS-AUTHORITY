@@ -1,7 +1,7 @@
 @include('layout.bootstrap')
 
 <div class="container-fluid">
-    <form class="needs-validation" action="{{ route('AddRecord') }}" method="POST">
+    <form class="needs-validation" action="{{ route('AddRecord') }}" method="POST" enctype="multipart/form-data">
         @csrf
     <div class="row">
         @include('layout.nav')
@@ -88,29 +88,29 @@
                 <div class="mb-3 row">
                     <label for="inputID" class="col-sm-3 col-form-label">Tender ID</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputID" name="id">
+                      <input type="text" class="form-control" id="inputID" name="id" required>
                     </div>
                   </div>
 
                   <div class="mb-3 row">
                     <label for="inputName" class="col-sm-3 col-form-label">Display Name</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputName" name="name">
+                      <input type="text" class="form-control" id="inputName" name="name" required>
                     </div>
                   </div>
 
                   <div class="mb-3 row">
                     <label for="inputDescription" class="col-sm-3 col-form-label">Tender Description</label>
                     <div class="col-sm-9">
-                      <input type="Text box" class="form-control" id="inputDescription" name="des">
+                      <input type="Text box" class="form-control" id="inputDescription" name="des" required>
                     </div>
                   </div>
 
                   <div class="mb-3 row">
                     <label for="inputDescription" class="col-sm-3 col-form-label">Tender Equipment Type</label>
                     <div class="col-sm-9">
-                        <select class="form-select" aria-label="Default select example" name="type">
-                            <option selected>Open the equipment type</option>
+                        <select class="form-select" aria-label="Default select example" name="type" required>
+                            <option value="" selected>Open the equipment type</option>
                             <option value="ELECTRICAL EQUIPMENT">ELECTRICAL EQUIPMENT</option>
                             <option value="MECHANICAL EQUIPMENT">MECHANICAL EQUIPMENT</option>
                             <option value="OTHER MATERIALS & EQUIPMENT">OTHER MATERIALS & EQUIPMENT</option>
@@ -131,7 +131,7 @@
                   <div class="mb-3 row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Close Date</label>
                     <div class="col-sm-9">
-                      <input type="date" class="form-control" id="inputPassword" name="date">
+                      <input type="date" class="form-control" id="inputPassword" name="date" required>
                     </div>
                   </div>
 
@@ -189,8 +189,8 @@
                 <div class="mb-3 row">
                     <label for="inputDescription" class="col-sm-4 col-form-label">PROCUREMENT TYPE</label>
                     <div class="col-sm-8">
-                        <select class="form-select" aria-label="Default select example" name="Category">
-                            <option selected>SELECT PROCUREMENT TYPE</option>
+                        <select class="form-select" aria-label="Default select example" name="Category" required>
+                            <option selected value="">SELECT PROCUREMENT TYPE</option>
                             <option value="2">FOREIGN-PURCHASES</option>
                             <option value="1">LOCAL-PURCHASES</option>
                             <option value="3">OTHER-PURCHASES</option>
@@ -201,7 +201,7 @@
                   <div class="mb-3 row">
                     <label for="inputDescription" class="col-sm-4 col-form-label">Tender Status</label>
                     <div class="col-sm-8">
-                        <select class="form-select" aria-label="Default select example" name="status">
+                        <select class="form-select" aria-label="Default select example" name="status" required>
                             <option value="0" selected>Active</option>
                             <option value="1">Deactive</option>
                             <option value="2">Compleet</option>
