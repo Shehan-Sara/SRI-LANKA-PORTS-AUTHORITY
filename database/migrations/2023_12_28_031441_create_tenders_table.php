@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->integer('Category');
             $table->double('Ammount', 8, 2);
             $table->string('AttachmentPath')->nullable();
-            $table->string('AttachementName')->default('File not found');
+            $table->string('AttachementName')->default('empty');
             $table->integer('Status')->default('0');
             $table->string('ClosedDate');
             $table->string('Author')->nullable();

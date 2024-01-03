@@ -12,9 +12,9 @@ class TenderController extends Controller
     {
 
         $request->validate([
-            'id' => 'required|min:1|max:20',
+            'id' => 'required|min:1|max:30',
             'name' => 'required|min:5|max:30',
-            'des' => 'required|min:20|max:100',
+            'des' => 'required|min:5|max:100',
             'type' => 'required',
             'Category' => 'required',
             'amount' => 'required|numeric',
@@ -22,9 +22,12 @@ class TenderController extends Controller
             'date' => 'required',
         ]);
 
-        $pdfName = $request->file('pdffile')->getClientOriginalName();
-        $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
+        $pdf = "empty";
 
+        if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
+            $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
+            $pdf = $request->id;
+        }
         //dd($request->all());
 
         $tender = new Tender();
@@ -34,8 +37,8 @@ class TenderController extends Controller
         $tender->Type = $request->type;
         $tender->Category = $request->Category;
         $tender->Ammount = $request->amount;
-        $tender->AttachmentPath = '/pdf/' . $request->id . '.pdf';
-        $tender->AttachementName = $request->id;
+        $tender->AttachmentPath = '/pdf/' . $pdf . '.pdf';
+        $tender->AttachementName = $pdf;
         $tender->Status = $request->status;
         $tender->ClosedDate = $request->date;
         $tender->Author = $request->user;
