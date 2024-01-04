@@ -7,6 +7,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <br><br><br><br>
     <div class="container">
         <center>
@@ -16,16 +25,16 @@
                     <img class="mb-2" src="https://www.slpa.lk/application_resources/images/logo_1.png" alt="Company Logo">
                 </center>
                 <main class="form-signin w-100 m-auto">
-                    <form>
-                    
+                    <form method="POST" action="{{ route('login') }}">
+                    @csrf
                       <h1 class="h3 mb-3 fw-normal">Admin Login</h1>
                   
                       <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required>
                         <label for="floatingInput">Email address</label>
                       </div>
                       <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
                         <label for="floatingPassword">Password</label>
                       </div>
                   

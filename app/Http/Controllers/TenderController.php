@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\File;
 
 class TenderController extends Controller
 {
+    public function newrecord()
+    {
+        return view('admin.insert');
+    }
     public function addrecord(Request $request)
     {
 

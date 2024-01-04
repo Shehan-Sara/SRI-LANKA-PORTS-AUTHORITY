@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TenderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,33 +23,42 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
-Route::get('/home', function () {
-    return view('admin.home');
-})->name('AdminHome');
-
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->name('AdminDashboard');
-
-Route::get('/localpurchase', [TenderController::class, 'viewLocal'])->name('AdminLocal');
-
-Route::get('/foreignpurchase', [TenderController::class, 'viewForign'])->name('AdminForeign');
-
-Route::get('/otherpurchase', [TenderController::class, 'viewOther'])->name('AdminOther');
-
-Route::get('/recorddelete/{id}', [TenderController::class, 'deleteRecord'])->name('DeleteRecord');
+Route::post('/varify', [UserController::class, 'login'])->name('login');
+Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
 
-Route::get('/massages', function () {
-    return view('admin.massages');
-})->name('AdminMassages');
 
-Route::get('/users', function () {
-    return view('admin.users');
-})->name('AdminUsers');
+Route::middleware(['admin'])->group(function () {
 
-Route::get('/addrecord', function () {
-    return view('admin.insert');
-})->name('AdminInsert');
+    // tender Record View
+    Route::get('/localpurchase', [TenderController::class, 'viewLocal'])->name('AdminLocal');
+    Route::get('/foreignpurchase', [TenderController::class, 'viewForign'])->name('AdminForeign');
+    Route::get('/otherpurchase', [TenderController::class, 'viewOther'])->name('AdminOther');
 
-Route::post('/insertdata', [TenderController::class, 'addrecord'])->name('AddRecord');
+    // Tender record manageent
+    Route::post('/insertdata', [TenderController::class, 'addrecord'])->name('AddRecord');
+    Route::post('/insertdata', [TenderController::class, 'newrecord'])->name('AdminInsert');
+
+    // User Management 
+    Route::get('/users', [UserController::class, 'viewuser'])->name('AdminUsers');
+
+    Route::get('/home', function () {
+        return view('admin.home');
+    })->name('AdminHome');
+
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('AdminDashboard');
+
+    Route::get('/massages', function () {
+        return view('admin.massages');
+    })->name('AdminMassages');
+
+});
+
+Route::middleware(['action'])->group(function () {
+    Route::get('/recorddelete/{id}', [TenderController::class, 'deleteRecord'])->name('DeleteRecord');
+
+    Route::get('/newuser', [UserController::class, 'adduser'])->name('adduser');
+    Route::post('/usercreate', [UserController::class, 'usercreate'])->name('usercreate');
+});
