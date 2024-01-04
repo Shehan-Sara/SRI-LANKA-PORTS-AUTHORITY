@@ -5,8 +5,15 @@
       </a>
 
       <form class="d-flex" role="search">
-        
-        <a class="btn btn-outline-success" href="{{ route('logout') }}" type="submit">Logout</a>
+        <div class="dropdown text-end">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ Auth::user()->name }}
+          </a>
+          <ul class="dropdown-menu text-small" style="">
+            
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
       </form>
     </div>
   </nav>
