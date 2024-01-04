@@ -48,7 +48,15 @@ class TenderController extends Controller
         $tender->Author = $request->user;
         $tender->save();
 
-        return view('admin.home');
+        if ($request->Category == '1') {
+            return redirect()->route('AdminLocal')->with('success', 'Local Tender added successfully!');
+        } else if ($request->Category == '2') {
+            return redirect()->route('AdminForeign')->with('success', 'Foreign Tender added successfully!');
+        } else if ($request->Category == '3') {
+            return redirect()->route('AdminOther')->with('success', 'Other Tender added successfully!');
+        } else {
+            return redirect()->route('AdminHome')->with('success', 'Tender added successfully!');
+        }
     }
 
     public function viewLocal()

@@ -204,8 +204,7 @@
                         <select class="form-select" aria-label="Default select example" name="status" required>
                             <option value="0" selected>Active</option>
                             <option value="1">Deactive</option>
-                            <option value="2">Compleet</option>
-                            <option value="3">Three</option>
+                            <option value="2">Compleet</option>                            
                           </select>
                     </div>
                   </div>
