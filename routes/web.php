@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TenderController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,3 +53,7 @@ Route::get('/addrecord', function () {
 })->name('AdminInsert');
 
 Route::post('/insertdata', [TenderController::class, 'addrecord'])->name('AddRecord');
+Route::post('/varify', [UserController::class, 'login'])->name('login');
+
+Route::get('/newuser', [UserController::class, 'adduser'])->name('adduser');
+Route::post('/usercreate', [UserController::class, 'usercreate'])->name('usercreate');
