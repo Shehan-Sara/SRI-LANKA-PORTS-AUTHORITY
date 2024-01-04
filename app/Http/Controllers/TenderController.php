@@ -28,10 +28,7 @@ class TenderController extends Controller
 
         $pdf = "empty";
 
-        if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
-            $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
-            $pdf = $request->id;
-        }
+
         //dd($request->all());
 
         $tender = new Tender();
@@ -41,7 +38,11 @@ class TenderController extends Controller
         $tender->Type = $request->type;
         $tender->Category = $request->Category;
         $tender->Ammount = $request->amount;
-        $tender->AttachmentPath = '/pdf/' . $pdf . '.pdf';
+        if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
+            $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
+            $pdf = $request->id;
+            $tender->AttachmentPath = '/pdf/' . $pdf . '.pdf';
+        }
         $tender->AttachementName = $pdf;
         $tender->Status = $request->status;
         $tender->ClosedDate = $request->date;
