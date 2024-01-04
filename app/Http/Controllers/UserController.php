@@ -20,14 +20,21 @@ class UserController extends Controller
         return redirect()->back()->withInput()->withErrors(['email' => 'Invalid credentials']);
     }
 
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
+
     public function usercreate(Request $request)
     {
-        // dd($request->all());
+        //dd($request->all());
 
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
             'password' => 'required|string|min:8',
+            'user' => 'boolean',
         ]);
 
         $user = User::create([
@@ -43,7 +50,8 @@ class UserController extends Controller
 
     public function viewuser()
     {
-
+        $user = User::get();
+        return view('admin.users', compact('user'));
     }
 
     public function adduser()
