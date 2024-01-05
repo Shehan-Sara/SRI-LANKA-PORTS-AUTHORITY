@@ -7,15 +7,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
     <br><br><br><br>
     <div class="container">
         <center>
@@ -30,13 +21,24 @@
                       <h1 class="h3 mb-3 fw-normal">Admin Login</h1>
                   
                       <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required>
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required>                        
                         <label for="floatingInput">Email address</label>
                       </div>
+                      @error('email')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
+
                       <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>                        
                         <label for="floatingPassword">Password</label>
                       </div>
+                      @error('password')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
+
+                      @error('error')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                   
                       <div class="form-check text-start my-3">
                         <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">

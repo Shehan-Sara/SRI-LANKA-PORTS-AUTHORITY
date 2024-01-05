@@ -1,5 +1,11 @@
 @include('layout.bootstrap')
 
+@if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
+
 <div class="container-fluid">
     <div class="row">
         @include('layout.nav')

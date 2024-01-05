@@ -28,10 +28,7 @@ class TenderController extends Controller
 
         $pdf = "empty";
 
-        if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
-            $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
-            $pdf = $request->id;
-        }
+
         //dd($request->all());
 
         $tender = new Tender();
@@ -41,14 +38,26 @@ class TenderController extends Controller
         $tender->Type = $request->type;
         $tender->Category = $request->Category;
         $tender->Ammount = $request->amount;
-        $tender->AttachmentPath = '/pdf/' . $pdf . '.pdf';
+        if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
+            $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
+            $pdf = $request->id;
+            $tender->AttachmentPath = '/pdf/' . $pdf . '.pdf';
+        }
         $tender->AttachementName = $pdf;
         $tender->Status = $request->status;
         $tender->ClosedDate = $request->date;
         $tender->Author = $request->user;
         $tender->save();
 
-        return view('admin.home');
+        if ($request->Category == '1') {
+            return redirect()->route('AdminLocal')->with('success', 'Local Tender added successfully!');
+        } else if ($request->Category == '2') {
+            return redirect()->route('AdminForeign')->with('success', 'Foreign Tender added successfully!');
+        } else if ($request->Category == '3') {
+            return redirect()->route('AdminOther')->with('success', 'Other Tender added successfully!');
+        } else {
+            return redirect()->route('AdminHome')->with('success', 'Tender added successfully!');
+        }
     }
 
     public function viewLocal()

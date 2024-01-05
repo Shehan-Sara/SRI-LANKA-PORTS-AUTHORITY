@@ -88,6 +88,9 @@
                         <label for="name" class="col-sm-3 col-form-label">User Name</label>
                         <div class="col-sm-9">
                           <input type="text" class="form-control" id="name" name="name" required>
+                          @error('name')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                          @enderror
                         </div>
                     </div>
 
@@ -95,6 +98,9 @@
                         <label for="email" class="col-sm-3 col-form-label">User E-Mail</label>
                         <div class="col-sm-9">
                           <input type="email" class="form-control" id="email" name="email" required>
+                          @error('email')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                          @enderror
                         </div>
                     </div>
 
@@ -102,6 +108,9 @@
                         <label for="password" class="col-sm-3 col-form-label">User Password</label>
                         <div class="col-sm-9">
                           <input type="password" class="form-control" id="password" name="password" required>
+                          @error('password')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                          @enderror
                         </div>
                     </div>
 
@@ -116,6 +125,9 @@
                         <label for="user" class="col-sm-3 col-form-label">Select User Type</label>
                         <div class="col-sm-9">
                             <select class="form-select" aria-label="Default select example" name="user" required>
+                          @error('user')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                          @enderror
                                 <option value="0" selected>Default User</option>
                                 <option value="1">Admin User</option>                                
                             </select>

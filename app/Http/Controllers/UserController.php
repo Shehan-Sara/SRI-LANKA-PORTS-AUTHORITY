@@ -11,13 +11,17 @@ class UserController extends Controller
 {
     public function login(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|string|min:8',
+        ]);
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/home');
         }
 
-        return redirect()->back()->withInput()->withErrors(['email' => 'Invalid credentials']);
+        return redirect()->back()->withInput()->withErrors(['error' => 'Invalid credentials. Check your user name and password']);
     }
 
     public function logout()
