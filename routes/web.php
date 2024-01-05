@@ -61,4 +61,5 @@ Route::middleware(['action'])->group(function () {
 
     Route::get('/newuser', [UserController::class, 'adduser'])->name('adduser');
     Route::post('/usercreate', [UserController::class, 'usercreate'])->name('usercreate');
+    Route::get('/userdelete/{id}', [UserController::class, 'userdelete'])->name('userdelete');
 });

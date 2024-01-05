@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->text('Description')->nullable();
             $table->string('Type');
             $table->integer('Category');
-            $table->double('Ammount', 8, 2);
+            $table->double('Ammount', 20, 2);
             $table->string('AttachmentPath')->nullable();
             $table->string('AttachementName')->default('empty');
             $table->integer('Status')->default('0');

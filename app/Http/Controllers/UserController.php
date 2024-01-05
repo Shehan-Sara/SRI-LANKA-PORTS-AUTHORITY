@@ -30,6 +30,13 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    public function userdelete($id)
+    {
+        $record = User::orderBy('id', 'asc')->find($id);
+        $record->delete();
+        return redirect()->back();
+    }
+
     public function usercreate(Request $request)
     {
         //dd($request->all());

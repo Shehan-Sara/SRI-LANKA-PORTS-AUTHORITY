@@ -80,9 +80,28 @@ class TenderController extends Controller
 
     public function deleteRecord($id)
     {
-        $record = Tender::orderBy('id', 'asc')->find($id);
-        $record->delete();
-        return redirect()->back();
+        $record = Tender::find($id);
+
+        if ($record) {
+            // Delete the file if it exists
+            if (!empty($record->AttachmentPath)) {
+                $filePath = public_path($record->AttachmentPath);
+
+                if (File::exists($filePath)) {
+                    File::delete($filePath);
+                }
+            }
+
+            $record->delete();
+            return redirect()->back();
+        }
+
+        return redirect()->back()->with('error', 'Record didnt found');
+    }
+
+    public function auditlog($massage)
+    {
+        //not created yet
     }
 
 }
