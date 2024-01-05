@@ -81,7 +81,35 @@
                 <div class="card-body">
                     <h5 class="card-title">General Details</h5>
 
-                    <form method="POST" action="{{ route('usercreate') }}">
+                    <script>
+                      $(document).ready(function () {
+                          $('#password, #password_confirmation').on('keyup', function () {
+                              var password = $('#password').val();
+                              var confirmPassword = $('#password_confirmation').val();
+                  
+                              if (password === confirmPassword) {
+                                  $('#password_confirmation').removeClass('is-invalid');
+                                  $('#password_confirmation').addClass('is-valid');
+                              } else {
+                                  $('#password_confirmation').removeClass('is-valid');
+                                  $('#password_confirmation').addClass('is-invalid');
+                              }
+                          });
+                  
+                          $('#registrationForm').submit(function (event) {
+                              var password = $('#password').val();
+                              var confirmPassword = $('#password_confirmation').val();
+                  
+                              if (password !== confirmPassword) {
+                                  event.preventDefault();  // Prevent form submission
+                                  alert('Password and Confirm Password must match.');
+                              }
+                          });
+                      });
+                  </script>
+
+
+                    <form method="POST" action="{{ route('usercreate') }}" id="registrationForm">
                       @csrf
 
                     <div class="mb-3 row">
@@ -107,7 +135,7 @@
                     <div class="mb-3 row">
                         <label for="password" class="col-sm-3 col-form-label">User Password</label>
                         <div class="col-sm-9">
-                          <input type="password" class="form-control" id="password" name="password" required>
+                          <input type="password" class="form-control" name="password" id="password" required>
                           @error('password')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                           @enderror
@@ -117,8 +145,11 @@
                     <div class="mb-3 row">
                         <label for="passwordc" class="col-sm-3 col-form-label">Confirm User Password</label>
                         <div class="col-sm-9">
-                          <input type="passwordc" class="form-control" id="passwordc" name="passwordc" required>
+                          <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
                         </div>
+                        <div class="invalid-feedback">
+                          Password and Confirm Password must match.
+                      </div>
                     </div>
 
                     <div class="mb-3 row">
@@ -134,7 +165,7 @@
                         </div>
                       </div>
 
-                      <button type="submit"> Submit</button>
+                      <button type="submit" class="btn btn-primary"> Submit</button>
 
                     </form>
 
