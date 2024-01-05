@@ -1,4 +1,9 @@
 @include('layout.bootstrap')
+@if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+@endif
 
 <div class="container-fluid">
     <form class="needs-validation" action="{{ route('AddRecord') }}" method="POST" enctype="multipart/form-data">

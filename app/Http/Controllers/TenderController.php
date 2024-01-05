@@ -34,6 +34,11 @@ class TenderController extends Controller
         $tender = new Tender();
         $tender->TenderNo = $request->id;
         $tender->Name = $request->name;
+
+        if (Tender::where('TenderNo', $tender->TenderNo)->exists()) {
+            return redirect()->back()->with('error', 'TenderNo already exists.');
+        }
+
         $tender->Description = $request->des;
         $tender->Type = $request->type;
         $tender->Category = $request->Category;
