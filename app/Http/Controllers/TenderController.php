@@ -27,17 +27,23 @@ class TenderController extends Controller
         ]);
 
         $pdf = "empty";
-
-
         //dd($request->all());
 
         $tender = new Tender();
         $tender->TenderNo = $request->id;
         $tender->Name = $request->name;
+
+        //check that record ID alredy exist or not
+        if (Tender::where('TenderNo', $tender->TenderNo)->exists()) {
+            return redirect()->back()->with('error', 'TenderNo already exists.');
+        }
+
         $tender->Description = $request->des;
         $tender->Type = $request->type;
         $tender->Category = $request->Category;
         $tender->Ammount = $request->amount;
+
+        //save PDF file
         if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
             $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
             $pdf = $request->id;
@@ -80,9 +86,27 @@ class TenderController extends Controller
 
     public function deleteRecord($id)
     {
-        $record = Tender::orderBy('id', 'asc')->find($id);
-        $record->delete();
-        return redirect()->back();
+        $record = Tender::find($id);
+
+        if ($record) {
+            // Delete the file if it exists
+            if (!empty($record->AttachmentPath)) {
+                $filePath = public_path($record->AttachmentPath);
+
+                if (File::exists($filePath)) {
+                    File::delete($filePath);
+                }
+            }
+            $record->delete();
+            return redirect()->back();
+        }
+
+        return redirect()->back()->with('error', 'Record didnt found');
+    }
+
+    public function auditlog($massage)
+    {
+        //not created yet
     }
 
 }

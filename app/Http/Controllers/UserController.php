@@ -30,9 +30,16 @@ class UserController extends Controller
         return redirect('/');
     }
 
+    public function userdelete($id)
+    {
+        $record = User::orderBy('id', 'asc')->find($id);
+        $record->delete();
+        return redirect()->back();
+    }
+
     public function usercreate(Request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
 
         $request->validate([
             'name' => 'required|string',
@@ -44,7 +51,7 @@ class UserController extends Controller
         $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'admin' => $request->input('user'),
+            'admin' => (bool) $request->input('user'),
             'password' => Hash::make($request->input('password')),
         ]);
 
