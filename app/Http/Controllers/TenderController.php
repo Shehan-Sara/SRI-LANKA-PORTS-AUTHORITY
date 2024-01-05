@@ -27,14 +27,13 @@ class TenderController extends Controller
         ]);
 
         $pdf = "empty";
-
-
         //dd($request->all());
 
         $tender = new Tender();
         $tender->TenderNo = $request->id;
         $tender->Name = $request->name;
 
+        //check that record ID alredy exist or not
         if (Tender::where('TenderNo', $tender->TenderNo)->exists()) {
             return redirect()->back()->with('error', 'TenderNo already exists.');
         }
@@ -43,6 +42,8 @@ class TenderController extends Controller
         $tender->Type = $request->type;
         $tender->Category = $request->Category;
         $tender->Ammount = $request->amount;
+
+        //save PDF file
         if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
             $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
             $pdf = $request->id;
@@ -96,7 +97,6 @@ class TenderController extends Controller
                     File::delete($filePath);
                 }
             }
-
             $record->delete();
             return redirect()->back();
         }

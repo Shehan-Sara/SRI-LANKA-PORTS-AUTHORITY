@@ -124,13 +124,13 @@
                     <div class="mb-3 row">
                         <label for="user" class="col-sm-3 col-form-label">Select User Type</label>
                         <div class="col-sm-9">
-                            <select class="form-select" aria-label="Default select example" name="user" required>
-                          @error('user')
-                            <div class="invalid-feedback d-block">{{ $message }}</div>
-                          @enderror
+                            <select class="form-select" aria-label="Default select example" name="user" required>                          
                                 <option value="0" selected>Default User</option>
                                 <option value="1">Admin User</option>                                
                             </select>
+                            @error('user')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                          @enderror
                         </div>
                       </div>
 
