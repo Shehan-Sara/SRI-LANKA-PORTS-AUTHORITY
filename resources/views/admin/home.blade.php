@@ -85,7 +85,7 @@
             <div class="card mb-3 border-0" style="max-width: 780px;">
                 <div class="row g-0">
                     <div class="col-md-9">
-                        <h5 class="card-title">Welcome Back Admin Name</h5>
+                        <h5 class="card-title">Welcome Back {{ Auth::user()->name }}</h5>
                         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                     <div class="col-md-3">

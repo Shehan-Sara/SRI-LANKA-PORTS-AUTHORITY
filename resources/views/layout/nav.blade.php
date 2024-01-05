@@ -11,7 +11,7 @@
           </a>
           <ul class="dropdown-menu text-small" style="">
             
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" href="{{ route('logout') }}">Sign out</a></li>
           </ul>
         </div>
       </form>

@@ -89,6 +89,9 @@
                     <label for="inputID" class="col-sm-3 col-form-label">Tender ID</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="inputID" name="id" required>
+                      @error('id')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -96,6 +99,9 @@
                     <label for="inputName" class="col-sm-3 col-form-label">Display Name</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="inputName" name="name" required>
+                      @error('name')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -103,6 +109,9 @@
                     <label for="inputDescription" class="col-sm-3 col-form-label">Tender Description</label>
                     <div class="col-sm-9">
                       <input type="Text box" class="form-control" id="inputDescription" name="des" required>
+                      @error('des')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -115,6 +124,9 @@
                             <option value="MECHANICAL EQUIPMENT">MECHANICAL EQUIPMENT</option>
                             <option value="OTHER MATERIALS & EQUIPMENT">OTHER MATERIALS & EQUIPMENT</option>
                           </select>
+                          @error('type')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -122,6 +134,9 @@
                     <label for="inputPassword" class="col-sm-3 col-form-label">Bid Sec. Amount (Rs.)</label>
                     <div class="col-sm-9">
                       <input type="Number" class="form-control" id="inputPassword" name="amount" min="0" required>
+                      @error('amount')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                       <div class="invalid-feedback">
                         Please select a Amount.
                       </div>
@@ -132,6 +147,9 @@
                     <label for="inputPassword" class="col-sm-3 col-form-label">Close Date</label>
                     <div class="col-sm-9">
                       <input type="date" class="form-control" id="inputPassword" name="date" required>
+                      @error('date')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -139,6 +157,9 @@
                     <label for="inputPassword" class="col-sm-3 col-form-label">Upload Document</label>
                     <div class="col-sm-9">
                       <input type="file" class="form-control" name="pdffile" id="fileInput" accept=".pdf">
+                      @error('pdffile')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -146,6 +167,7 @@
                     <label for="staticEmail" class="col-sm-3 col-form-label">Publishr By</label>
                     <div class="col-sm-9">
                       <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Admin Name" name="user">
+                      
                     </div>
                   </div>
                   
@@ -195,6 +217,9 @@
                             <option value="1">LOCAL-PURCHASES</option>
                             <option value="3">OTHER-PURCHASES</option>
                           </select>
+                          @error('Category')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -206,6 +231,9 @@
                             <option value="1">Deactive</option>
                             <option value="2">Compleet</option>                            
                           </select>
+                          @error('status')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
