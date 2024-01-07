@@ -12,22 +12,22 @@ class PageController extends Controller
         $tenders = Tender::where('Category', 2) // to take foreign tenders
             ->where('Status', 0) //to take active trnders
             ->get();
-        return view('admin.local', compact('tender'));
+        return view('foreign');
     }
 
     public function local()
     {
-        $tenders = Tender::where('Category', 1) // to take foreign tenders
+        $tenders = Tender::where('Category', 1) // to take local tenders
             ->where('Status', 1) //to take active trnders
             ->get();
-        return view('admin.local', compact('tender'));
+        return view('local');
     }
 
     public function other()
     {
-        $tenders = Tender::where('Category', 1) // to take foreign tenders
+        $tenders = Tender::where('Category', 1) // to take other tenders
             ->where('Status', 3) //to take active trnders
             ->get();
-        return view('admin.local', compact('tender'));
+        return view('other');
     }
 }
