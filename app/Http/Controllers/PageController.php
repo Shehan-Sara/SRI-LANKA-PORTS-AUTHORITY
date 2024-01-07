@@ -9,10 +9,10 @@ class PageController extends Controller
 {
     public function foreign()
     {
-        $tenders = Tender::where('Category', 2) // to take foreign tenders
+        $tender = Tender::where('Category', 2) // to take foreign tenders
             ->where('Status', 0) //to take active trnders
             ->get();
-        return view('foreign');
+        return view('foreign', compact('tender'));
     }
 
     public function local()
