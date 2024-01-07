@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\TenderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +23,10 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('admin.login');
 });
+
+Route::get('/foreign-purchases', [PageController::class, 'foreign'])->name('foreign');
+Route::get('/local-purchases', [PageController::class, 'local'])->name('local');
+Route::get('/other-purchases', [PageController::class, 'other'])->name('other');
 
 Route::post('/varify', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');

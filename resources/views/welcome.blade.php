@@ -12,13 +12,13 @@
                 <a class="nav-link active" aria-current="page" href="#">ABOUT</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">LOCAL-PURCHASES</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('local') }}">LOCAL-PURCHASES</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">FORIGN-PURCHASES</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('foreign') }}">FORIGN-PURCHASES</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">OTHER-PURCHASES</a>
+                <a class="nav-link active" aria-current="page" href="{{ route('other') }}">OTHER-PURCHASES</a>
               </li>
               
               <li class="nav-item dropdown">

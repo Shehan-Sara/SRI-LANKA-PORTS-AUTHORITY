@@ -171,7 +171,7 @@
                   <div class="mb-3 row">
                     <label for="staticEmail" class="col-sm-3 col-form-label">Publishr By</label>
                     <div class="col-sm-9">
-                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Admin Name" name="user">
+                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ Auth::user()->name }}" name="user">
                       
                     </div>
                   </div>
@@ -184,30 +184,14 @@
 
   <div class="col-md-4">
     <div class="container"> 
-      <div class="card border-0">
-        <div class="row g-0">
-            <div class="col-md-10">
-                <div class="card-body">
-                    <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 10%"></div>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card-body">
-                    10%
-                </div>
-            </div>
-        </div>
+      <div class="card border-0">       
 
         <div class="card mb-3 ">            
             <div class="card-body">
                 <h5 class="card-title mb-3">Tender Preview</h5>
                 add
             </div>
-          </div>
-
-          
+          </div>          
 
           <div class="card mb-3">
             <div class="card-body">

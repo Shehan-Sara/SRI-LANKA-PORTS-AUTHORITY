@@ -63,6 +63,7 @@ class UserController extends Controller
     {
         $user = User::get();
         return view('admin.users', compact('user'));
+
     }
 
     public function adduser()
