@@ -17,16 +17,16 @@ class PageController extends Controller
 
     public function local()
     {
-        $tenders = Tender::where('Category', 1) // to take local tenders
-            ->where('Status', 1) //to take active trnders
+        $tender = Tender::where('Category', 1) // to take local tenders
+            ->where('Status', 0) //to take active trnders
             ->get();
-        return view('local');
+        return view('local', compact('tender'));
     }
 
     public function other()
     {
-        $tenders = Tender::where('Category', 1) // to take other tenders
-            ->where('Status', 3) //to take active trnders
+        $tenders = Tender::where('Category', 3) // to take other tenders
+            ->where('Status', 0) //to take active trnders
             ->get();
         return view('other');
     }

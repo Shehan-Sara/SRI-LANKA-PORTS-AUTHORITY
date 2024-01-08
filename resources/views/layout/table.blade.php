@@ -168,5 +168,11 @@
           
         </tbody>
       </table>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+          {{$tender->links()}}
+        </ul>
+      </nav>
+
     </div> 
   </div>
