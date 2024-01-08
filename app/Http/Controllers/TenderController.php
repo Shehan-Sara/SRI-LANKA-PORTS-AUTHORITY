@@ -44,12 +44,6 @@ class TenderController extends Controller
         $tender->Category = $request->Category;
         $tender->Ammount = $request->amount;
 
-        // //save PDF file
-        // if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
-        //     $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
-        //     $pdf = $request->id;
-        //     $tender->AttachmentPath = '/pdf/' . $pdf . '.pdf';
-        // }
         if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
             // Generate a unique and URL-friendly file name
             $fileName = Str::slug($request->id . '_' . time()) . '.pdf';

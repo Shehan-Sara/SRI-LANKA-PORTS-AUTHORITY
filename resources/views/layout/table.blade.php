@@ -96,7 +96,7 @@
                             <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0"/>
                           </svg>
                     </button>
-                    <button type="button" class="btn btn-success">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#Edit{{ $Tender->id }}">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
                             <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                             <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
@@ -154,12 +154,115 @@
                     <p>Published Date {{ $Tender->created_at }}</p> 
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>                    
                   </div>
                 </div>
               </div>
             </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="Edit{{ $Tender->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form action="" method="POST">
+        @csrf
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit {{ $Tender->TenderNo }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="mb-3 row">
+          <label for="name" class="col-sm-3 col-form-label">Tender ID</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="name" name="name" value="{{ $Tender->TenderNo }}" required>
+            @error('name')
+              <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>  
+
+        <div class="mb-3 row">
+          <label for="name" class="col-sm-3 col-form-label">Tender Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="name" name="name" value="{{ $Tender->Name }}" required>
+            @error('name')
+              <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+          </div>
+        </div> 
+
+        <div class="mb-3 row">
+          <label for="name" class="col-sm-3 col-form-label">Tender Ammount</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="name" name="name" value="{{ $Tender->Ammount }}" required>
+            @error('name')
+              <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+          </div>
+        </div> 
+
+        <div class="mb-3 row">
+          <label for="name" class="col-sm-3 col-form-label">Tender Description</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="name" name="name" value="{{ $Tender->Description }}" required>
+            @error('name')
+              <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+
+        <div class="mb-3 row">          
+          <div class="col-sm-6">
+            <input type="date" placeholder="Select Date">
+            @error('name')
+              <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+          </div>
+          <div class="col-sm-6">
+            <input type="file">
+            @error('name')
+              <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+        
+        <div class="mb-3 row">          
+          <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example" required>
+              <option selected value="{{ $Tender->Type }}">{{ $Tender->Type }}</option>
+              <option value="1">Active</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            @error('name')
+              <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+          </div>
+          <div class="col-sm-6">
+            <select class="form-select" aria-label="Default select example" required>
+              <option selected value="{{$Tender->Status}}">Status</option>
+              <option value="1">Active</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+            @error('name')
+              <div class="invalid-feedback d-block">{{ $message }}</div>
+            @enderror
+          </div>
+        </div>
+            
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Edit</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
           </tr>
