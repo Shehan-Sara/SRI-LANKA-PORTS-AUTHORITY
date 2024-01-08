@@ -53,94 +53,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
+                            @if($tender->isEmpty())
+                            <tr class="text-center">
+                                <td colspan="5">No Records to Display.</td>
                             </tr>
+                            @else 
+                            @foreach($tender ->sortByDesc('id') as $Tender)
+                              @if($Tender->Type == "ELECTRICAL EQUIPMENT")
                             <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
+                                <td>{{ $Tender->TenderNo }}</td>
+                                <td>{{ $Tender->Description }}</td>
+                                <td>{{ $Tender->Ammount }}</td>
+                                <td>{{ $Tender->ClosedDate }}</td>
+                                @if( $Tender->AttachmentPath == null)   
+                                <td>No Attachment</td>
+                                @else
+                                <td><a class="btn table-action" href="{{ asset($Tender->AttachmentPath) }}" download>Download</a></td>
+                                @endif
                             </tr>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
-                            </tr>
-
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
-                            </tr>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Tender No.</th>
-                                <th>Description</th>
-                                <th>BID Security Amount (Rs.)</th>
-                                <th>Closing Date and Time</th>
-                                <th>Attachment</th>
-                            </tr>
-                        </tfoot>
+                              @endif
+                            @endforeach  
+                            @endif
+                        </tbody>                   
+                        
                     </table>
                 </div>
                 <div id="mechanical" class="d-none">
@@ -171,23 +106,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
+                            @if($tender->isEmpty())
+                            <tr class="text-center">
+                                <td colspan="5">No Records to Display.</td>
                             </tr>
-                        </tbody>
-                        <tfoot>
+                            @else 
+                            @foreach($tender ->sortByDesc('id') as $Tender)
+                              @if($Tender->Type == "MECHANICAL EQUIPMENT")
                             <tr>
-                                <th>Tender No.</th>
-                                <th>Description</th>
-                                <th>BID Security Amount (Rs.)</th>
-                                <th>Closing Date and Time</th>
-                                <th>Attachment</th>
+                                <td>{{ $Tender->TenderNo }}</td>
+                                <td>{{ $Tender->Description }}</td>
+                                <td>{{ $Tender->Ammount }}</td>
+                                <td>{{ $Tender->ClosedDate }}</td>
+                                @if( $Tender->AttachmentPath == null)   
+                                <td>No Attachment</td>
+                                @else
+                                <td><a class="btn table-action" href="{{ asset($Tender->AttachmentPath) }}" download>Download</a></td>
+                                @endif
                             </tr>
-                        </tfoot>
+                              @endif
+                            @endforeach  
+                            @endif
+                        </tbody>                   
                     </table>
                 </div>
                 <div id="other-equipement" class="d-none">
@@ -220,23 +160,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>789012</td>
-                                <td>Another Description</td>
-                                <td>150,000</td>
-                                <td>2024-02-15 12:30:00</td>
-                                <td><a href="" class="btn table-action">Action</a></td>
+                            @if($tender->isEmpty())
+                            <tr class="text-center">
+                                <td colspan="5">No Records to Display.</td>
                             </tr>
+                            @else 
+                            @foreach($tender ->sortByDesc('id') as $Tender)
+                              @if($Tender->Type == "OTHER EQUIPMENT")
+                            <tr>
+                                <td>{{ $Tender->TenderNo }}</td>
+                                <td>{{ $Tender->Description }}</td>
+                                <td>{{ $Tender->Ammount }}</td>
+                                <td>{{ $Tender->ClosedDate }}</td>
+                                @if( $Tender->AttachmentPath == null)   
+                                <td>No Attachment</td>
+                                @else
+                                <td><a class="btn table-action" href="{{ asset($Tender->AttachmentPath) }}" download>Download</a></td>
+                                @endif
+                            </tr>
+                              @endif
+                            @endforeach  
+                            @endif  
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Tender No.</th>
-                                <th>Description</th>
-                                <th>BID Security Amount (Rs.)</th>
-                                <th>Closing Date and Time</th>
-                                <th>Attachment</th>
-                            </tr>
-                        </tfoot>
                     </table>
                 </div>
             </main>
