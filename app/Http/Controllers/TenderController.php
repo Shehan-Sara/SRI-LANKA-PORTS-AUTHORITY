@@ -77,7 +77,7 @@ class TenderController extends Controller
                 'TenderNo' => $request->input('id'),
                 'Name' => $request->input('name'),
                 'Amount' => $request->input('amount'),
-                'Description' => $request->input('des'),
+                'Description' => $request->input('Description'),
                 'Date' => $request->input('date'),
                 'Type' => $request->input('type'),
                 'Status' => $request->input('status'),

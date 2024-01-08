@@ -92,11 +92,11 @@
 
     <div class="col-md-4">
         <div class="container-fluid">
-            <div class="card mb-3 border-0" style="max-width: 580px;">
+            <div class="card mb-2 border-0" style="max-width: 580px;">
                 <div class="row g-0">
                     <div class="col-md-7">
                         
-                        <h5 class="card-title">S.L.P.A V 1.0 is HERE</h5>
+                        <h5 class="card-title">S.L.P.A V 1.1 is HERE</h5>
                         <p class="card-text">This is a wider This content is a little bit longer.</p>
                     </div>
                     <div class="col-md-5">
@@ -116,7 +116,12 @@
                   </h2>
                   <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                      <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      <ul>
+                        <li>Add/Remove/Edit Tenders</li>
+                        <li>Add/Remove/Edit Users</li>
+                        <li>Add/Remove/Edit Tenders</li>
+                      </ul>
+                      
                     </div>
                   </div>
                 </div>
