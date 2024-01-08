@@ -1,4 +1,12 @@
+@if ($errors->any())
+    <script>
+        window.onload = function() {
+            alert("There was an error with your submission:\n{{ implode('\n', $errors->all()) }}");
+        };
+    </script>
+@endif
 <div class=" mb-3">
+  
     <div class="card">            
         <div class="row g-0">
           <div class="col-md-10">
@@ -165,7 +173,7 @@
 <div class="modal fade" id="Edit{{ $Tender->id }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="" method="POST">
+      <form action="{{ route('editrecord') }}" method="POST" enctype="multipart/form-data">
         @csrf
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit {{ $Tender->TenderNo }}</h1>
@@ -173,13 +181,13 @@
       </div>
       <div class="modal-body">
 
+        <input type="text" name="value" value="{{ $Tender->id }}" readonly>
+        <input type="text" name="Category" value="{{ $Tender->Category }}" readonly>
         <div class="mb-3 row">
           <label for="name" class="col-sm-3 col-form-label">Tender ID</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="name" name="name" value="{{ $Tender->TenderNo }}" required>
-            @error('name')
-              <div class="invalid-feedback d-block">{{ $message }}</div>
-            @enderror
+            <input type="text" class="form-control" id="inputID" name="id" value="{{ $Tender->TenderNo }}" required>
+            
           </div>
         </div>  
 
@@ -187,69 +195,55 @@
           <label for="name" class="col-sm-3 col-form-label">Tender Name</label>
           <div class="col-sm-9">
             <input type="text" class="form-control" id="name" name="name" value="{{ $Tender->Name }}" required>
-            @error('name')
-              <div class="invalid-feedback d-block">{{ $message }}</div>
-            @enderror
+            
           </div>
         </div> 
 
         <div class="mb-3 row">
-          <label for="name" class="col-sm-3 col-form-label">Tender Ammount</label>
+          <label for="name" class="col-sm-3 col-form-label">Ammount</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" id="name" name="name" value="{{ $Tender->Ammount }}" required>
-            @error('name')
-              <div class="invalid-feedback d-block">{{ $message }}</div>
-            @enderror
+            <input type="text" class="form-control" id="inputamount" name="amount" value="{{ $Tender->Ammount }}" required>
+            
           </div>
         </div> 
 
         <div class="mb-3 row">
-          <label for="name" class="col-sm-3 col-form-label">Tender Description</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control" id="name" name="name" value="{{ $Tender->Description }}" required>
-            @error('name')
-              <div class="invalid-feedback d-block">{{ $message }}</div>
-            @enderror
+          <label for="des" class="col-sm-3 col-form-label">Tender Description</label>
+          <div class="col-sm-9">            
+            <textarea class="form-control" id="des" name="Description" required>{{ $Tender->Description }}</textarea>
+            
           </div>
         </div>
 
         <div class="mb-3 row">          
           <div class="col-sm-6">
-            <input type="date" placeholder="Select Date">
-            @error('name')
-              <div class="invalid-feedback d-block">{{ $message }}</div>
-            @enderror
+            <input type="date" class="form-control" id="inputPassword" name="date" required>
+            
           </div>
           <div class="col-sm-6">
-            <input type="file">
-            @error('name')
-              <div class="invalid-feedback d-block">{{ $message }}</div>
-            @enderror
+            <input type="file" class="form-control" name="pdffile" id="fileInput" accept=".pdf">
+            
           </div>
         </div>
         
         <div class="mb-3 row">          
           <div class="col-sm-6">
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" aria-label="Default select example" name="type" required>
               <option selected value="{{ $Tender->Type }}">{{ $Tender->Type }}</option>
-              <option value="1">Active</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="ELECTRICAL EQUIPMENT">ELECTRICAL EQUIPMENT</option>
+              <option value="MECHANICAL EQUIPMENT">MECHANICAL EQUIPMENT</option>
+              <option value="OTHER MATERIALS & EQUIPMENT">OTHER MATERIALS & EQUIPMENT</option>
             </select>
-            @error('name')
-              <div class="invalid-feedback d-block">{{ $message }}</div>
-            @enderror
+            
           </div>
           <div class="col-sm-6">
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" aria-label="Default select example" name="status" required>
               <option selected value="{{$Tender->Status}}">Status</option>
-              <option value="1">Active</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option value="0">Active</option>
+              <option value="1">Deactive</option>
+              <option value="2">Compleet</option>
             </select>
-            @error('name')
-              <div class="invalid-feedback d-block">{{ $message }}</div>
-            @enderror
+            
           </div>
         </div>
             
