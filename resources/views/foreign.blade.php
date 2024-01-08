@@ -55,6 +55,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $electric = '0';
+                            @endphp
                             @if($tender->isEmpty())
                             <tr class="text-center">
                                 <td colspan="5">No Records to Display.</td>
@@ -62,6 +65,9 @@
                             @else 
                             @foreach($tender ->sortByDesc('id') as $Tender)
                               @if($Tender->Type == "ELECTRICAL EQUIPMENT")
+                              @php
+                                $electric ++;
+                              @endphp
                             <tr>
                                 <td>{{ $Tender->TenderNo }}</td>
                                 <td>{{ $Tender->Description }}</td>
@@ -75,6 +81,11 @@
                             </tr>
                               @endif
                             @endforeach  
+                            @if ($electric == 0)
+                            <tr class="text-center">
+                                <td colspan="5">No Records to Display.</td>
+                            </tr>                                                          
+                            @endif
                             @endif
                         </tbody>                        
                     </table>
@@ -107,6 +118,9 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $mechanical = '0';
+                            @endphp
                             @if($tender->isEmpty())
                             <tr class="text-center">
                                 <td colspan="5">No Records to Display.</td>
@@ -114,6 +128,9 @@
                             @else 
                             @foreach($tender ->sortByDesc('id') as $Tender)
                               @if($Tender->Type == "MECHANICAL EQUIPMENT")
+                              @php
+                                $mechanical ++;
+                              @endphp
                             <tr>
                                 <td>{{ $Tender->TenderNo }}</td>
                                 <td>{{ $Tender->Description }}</td>
@@ -126,7 +143,12 @@
                                 @endif
                             </tr>
                               @endif
-                            @endforeach  
+                            @endforeach 
+                            @if ($mechanical == 0)
+                            <tr class="text-center">
+                                <td colspan="5">No Records to Display.</td>
+                            </tr>                                                          
+                            @endif 
                             @endif  
                         </tbody>                      
                     </table>
@@ -161,13 +183,19 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $other = '0';
+                            @endphp
                             @if($tender->isEmpty())
                             <tr class="text-center">
                                 <td colspan="5">No Records to Display.</td>
                             </tr>
                             @else 
                             @foreach($tender ->sortByDesc('id') as $Tender)
-                              @if($Tender->Type == "OTHER EQUIPMENT")
+                              @if($Tender->Type == "OTHER MATERIALS & EQUIPMENT")
+                              @php
+                                $other ++;
+                              @endphp
                             <tr>
                                 <td>{{ $Tender->TenderNo }}</td>
                                 <td>{{ $Tender->Description }}</td>
@@ -180,7 +208,12 @@
                                 @endif
                             </tr>
                               @endif
-                            @endforeach  
+                            @endforeach
+                            @if ($other == 0)
+                            <tr class="text-center">
+                                <td colspan="5">No Records to Display.</td>
+                            </tr>                                                          
+                            @endif  
                             @endif  
                         </tbody>
                     </table>
