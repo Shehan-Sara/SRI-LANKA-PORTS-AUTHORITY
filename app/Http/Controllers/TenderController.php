@@ -68,19 +68,19 @@ class TenderController extends Controller
 
     public function viewLocal()
     {
-        $tender = Tender::where('Category', 1)->get();
+        $tender = Tender::where('Category', 1)->paginate(7);
         return view('admin.local', compact('tender'));
     }
 
     public function viewForign()
     {
-        $tender = Tender::where('Category', 2)->get();
+        $tender = Tender::where('Category', 2)->paginate(7);
         return view('admin.foreign', compact('tender'));
     }
 
     public function viewOther()
     {
-        $tender = Tender::where('Category', 3)->get();
+        $tender = Tender::where('Category', 3)->paginate(7);
         return view('admin.other', compact('tender'));
     }
 

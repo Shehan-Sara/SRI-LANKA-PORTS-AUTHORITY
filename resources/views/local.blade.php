@@ -224,3 +224,5 @@
     </div>
 </section>
 <!-- Local purchases end-->
+
+@include('layout.fotter')
