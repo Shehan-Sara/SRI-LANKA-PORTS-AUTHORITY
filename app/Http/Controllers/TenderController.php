@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class TenderController extends Controller
 {
@@ -43,13 +44,24 @@ class TenderController extends Controller
         $tender->Category = $request->Category;
         $tender->Ammount = $request->amount;
 
-        //save PDF file
+        // //save PDF file
+        // if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
+        //     $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
+        //     $pdf = $request->id;
+        //     $tender->AttachmentPath = '/pdf/' . $pdf . '.pdf';
+        // }
         if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
-            $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
-            $pdf = $request->id;
-            $tender->AttachmentPath = '/pdf/' . $pdf . '.pdf';
+            // Generate a unique and URL-friendly file name
+            $fileName = Str::slug($request->id . '_' . time()) . '.pdf';
+
+            // Move the file to the public/pdf directory with the generated file name
+            $request->file('pdffile')->move(public_path('pdf'), $fileName);
+
+            // Set the AttachmentPath in the model
+            $tender->AttachmentPath = '/pdf/' . $fileName;
         }
-        $tender->AttachementName = $pdf;
+
+        $tender->AttachementName = $fileName;
         $tender->Status = $request->status;
         $tender->ClosedDate = $request->date;
         $tender->Author = $request->user;
