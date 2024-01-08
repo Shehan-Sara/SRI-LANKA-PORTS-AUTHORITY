@@ -26,7 +26,7 @@
 
             <!-- Right Side Content -->
             <main role="main" class="col-md-9 col-lg-9 px-md-4">
-                <div id="electrical" class="d-none">
+                <div id="electrical" class="">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">

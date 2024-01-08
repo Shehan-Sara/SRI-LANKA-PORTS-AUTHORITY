@@ -43,6 +43,7 @@ Route::middleware(['admin'])->group(function () {
     // Tender record manageent
     Route::post('/insertdata', [TenderController::class, 'addrecord'])->name('AddRecord');
     Route::get('/newtender', [TenderController::class, 'newrecord'])->name('AdminInsert');
+    Route::post('/editdata', [TenderController::class, 'editrecord'])->name('editrecord');
 
     // User Management 
     Route::get('/users', [UserController::class, 'viewuser'])->name('AdminUsers');
@@ -50,10 +51,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/home', function () {
         return view('admin.home');
     })->name('AdminHome');
-
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('AdminDashboard');
 
     Route::get('/massages', function () {
         return view('admin.massages');

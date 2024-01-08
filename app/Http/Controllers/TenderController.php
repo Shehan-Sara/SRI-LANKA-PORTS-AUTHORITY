@@ -5,12 +5,96 @@ namespace App\Http\Controllers;
 use App\Models\Tender;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class TenderController extends Controller
 {
     public function newrecord()
     {
         return view('admin.insert');
+    }
+
+    public function editrecord(Request $request)
+    {
+        // dd($request->all());
+
+        $request->validate([
+            'id' => 'required|min:1|max:30',
+            'name' => 'required|min:5|max:30',
+            'Description' => 'required|min:5|max:100',
+            'type' => 'required',
+            'amount' => 'required|numeric',
+            'status' => 'required',
+            'date' => 'required',
+        ]);
+
+        $id = $request->value;
+        $tender = Tender::find($id);
+
+        // Check if the record exists
+        if (!$tender) {
+            return abort(404); // Or handle the case where the record is not found
+        }
+
+        if ($request->hasFile('pdffile')) {
+            // Delete the old PDF file if it exists
+            if ($tender->AttachmentPath) {
+
+                $filePath = public_path($tender->AttachmentPath);
+
+                if (File::exists($filePath)) {
+                    File::delete($filePath);
+                }
+
+            }
+
+            // Store the new PDF file            
+            if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
+                // Generate a unique and URL-friendly file name
+                $fileName = Str::slug($request->id . '_' . time()) . '.pdf';
+                // Move the file to the public/pdf directory with the generated file name
+                $request->file('pdffile')->move(public_path('pdf'), $fileName);
+                // Set the AttachmentPath in the model
+                $AttachmentPath = '/pdf/' . $fileName;
+            }
+
+            // Update the record with the new PDF file path
+            $tender->update([
+                'TenderNo' => $request->input('id'),
+                'Name' => $request->input('name'),
+                'Amount' => $request->input('amount'),
+                'Description' => $request->input('des'),
+                'Date' => $request->input('date'),
+                'Type' => $request->input('type'),
+                'Status' => $request->input('status'),
+                'AttachmentPath' => $AttachmentPath, // Update with the new file path
+                // Add more fields as needed
+            ]);
+        } else {
+            // Update the record without changing the PDF file
+            $tender->update([
+                'TenderNo' => $request->input('id'),
+                'Name' => $request->input('name'),
+                'Amount' => $request->input('amount'),
+                'Description' => $request->input('Description'),
+                'Date' => $request->input('date'),
+                'Type' => $request->input('type'),
+                'Status' => $request->input('status'),
+                // Add more fields as needed
+            ]);
+        }
+
+        if ($request->Category == '1') {
+            return redirect()->route('AdminLocal')->with('success', 'Local Tender added successfully!');
+        } else if ($request->Category == '2') {
+            return redirect()->route('AdminForeign')->with('success', 'Foreign Tender added successfully!');
+        } else if ($request->Category == '3') {
+            return redirect()->route('AdminOther')->with('success', 'Other Tender added successfully!');
+        } else {
+            return redirect()->route('AdminHome')->with('success', 'Tender added successfully!');
+        }
+
     }
     public function addrecord(Request $request)
     {
@@ -43,13 +127,18 @@ class TenderController extends Controller
         $tender->Category = $request->Category;
         $tender->Ammount = $request->amount;
 
-        //save PDF file
         if ($request->hasFile('pdffile') && $request->file('pdffile')->isValid()) {
-            $request->file('pdffile')->move(public_path('pdf'), $request->id . '.pdf');
-            $pdf = $request->id;
-            $tender->AttachmentPath = '/pdf/' . $pdf . '.pdf';
+            // Generate a unique and URL-friendly file name
+            $fileName = Str::slug($request->id . '_' . time()) . '.pdf';
+
+            // Move the file to the public/pdf directory with the generated file name
+            $request->file('pdffile')->move(public_path('pdf'), $fileName);
+
+            // Set the AttachmentPath in the model
+            $tender->AttachmentPath = '/pdf/' . $fileName;
         }
-        $tender->AttachementName = $pdf;
+
+        $tender->AttachementName = $fileName;
         $tender->Status = $request->status;
         $tender->ClosedDate = $request->date;
         $tender->Author = $request->user;
