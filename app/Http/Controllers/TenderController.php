@@ -40,8 +40,13 @@ class TenderController extends Controller
         if ($request->hasFile('pdffile')) {
             // Delete the old PDF file if it exists
             if ($tender->AttachmentPath) {
-                info("Deleting file: {$tender->AttachmentPath}");
-                Storage::delete(public_path($tender->AttachmentPath));
+
+                $filePath = public_path($tender->AttachmentPath);
+
+                if (File::exists($filePath)) {
+                    File::delete($filePath);
+                }
+
             }
 
             // Store the new PDF file            
