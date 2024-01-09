@@ -86,13 +86,13 @@ class TenderController extends Controller
         }
 
         if ($request->Category == '1') {
-            return redirect()->route('AdminLocal')->with('success', 'Local Tender added successfully!');
+            return redirect()->route('AdminLocal')->with('success', 'Local Tender Edited successfully!');
         } else if ($request->Category == '2') {
-            return redirect()->route('AdminForeign')->with('success', 'Foreign Tender added successfully!');
+            return redirect()->route('AdminForeign')->with('success', 'Foreign Tender Edited successfully!');
         } else if ($request->Category == '3') {
-            return redirect()->route('AdminOther')->with('success', 'Other Tender added successfully!');
+            return redirect()->route('AdminOther')->with('success', 'Other Tender Edited successfully!');
         } else {
-            return redirect()->route('AdminHome')->with('success', 'Tender added successfully!');
+            return redirect()->route('AdminHome')->with('success', 'Tender Edited successfully!');
         }
 
     }
@@ -102,7 +102,7 @@ class TenderController extends Controller
         $request->validate([
             'id' => 'required|min:1|max:30',
             'name' => 'required|min:5|max:30',
-            'des' => 'required|min:5|max:100',
+            'Description' => 'required|min:5|max:100',
             'type' => 'required',
             'Category' => 'required',
             'amount' => 'required|numeric',
@@ -122,7 +122,7 @@ class TenderController extends Controller
             return redirect()->back()->with('error', 'TenderNo already exists.');
         }
 
-        $tender->Description = $request->des;
+        $tender->Description = $request->Description;
         $tender->Type = $request->type;
         $tender->Category = $request->Category;
         $tender->Ammount = $request->amount;
