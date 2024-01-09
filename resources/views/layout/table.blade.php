@@ -181,8 +181,8 @@
       </div>
       <div class="modal-body">
 
-        <input type="text" name="value" value="{{ $Tender->id }}" readonly>
-        <input type="text" name="Category" value="{{ $Tender->Category }}" readonly>
+        <input type="text" name="value" value="{{ $Tender->id }}" hidden>
+        <input type="text" name="Category" value="{{ $Tender->Category }}" hidden>
         <div class="mb-3 row">
           <label for="name" class="col-sm-3 col-form-label">Tender ID</label>
           <div class="col-sm-9">
@@ -217,7 +217,7 @@
 
         <div class="mb-3 row">          
           <div class="col-sm-6">
-            <input type="date" class="form-control" id="inputPassword" name="date" required>
+            <input type="date" class="form-control" id="inputPassword" name="date" value="{{ $Tender->ClosedDate }}" required>
             
           </div>
           <div class="col-sm-6">
@@ -250,8 +250,8 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Edit</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Edit Tender</button>
       </div>
       </form>
     </div>
