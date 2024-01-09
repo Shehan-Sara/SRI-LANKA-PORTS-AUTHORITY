@@ -1,6 +1,6 @@
 @include('layout.header');
 
-<!-- Local purchases Start-->
+
 <section id="local-purchases">
     <div class="container-fluid">
         <div class="row">
@@ -60,33 +60,33 @@
                             <tr class="text-center">
                                 <td colspan="5">No Records to Display.</td>
                             </tr>
-                            @else 
+                            @else
                             @foreach($tender ->sortByDesc('id') as $Tender)
-                              @if($Tender->Type == "ELECTRICAL EQUIPMENT")
-                              @php
-                                $electric ++;
-                              @endphp
+                            @if($Tender->Type == "ELECTRICAL EQUIPMENT")
+                            @php
+                            $electric ++;
+                            @endphp
                             <tr>
                                 <td>{{ $Tender->TenderNo }}</td>
                                 <td>{{ $Tender->Description }}</td>
                                 <td>{{ $Tender->Ammount }}</td>
                                 <td>{{ $Tender->ClosedDate }}</td>
-                                @if( $Tender->AttachmentPath == null)   
+                                @if( $Tender->AttachmentPath == null)
                                 <td>No Attachment</td>
                                 @else
                                 <td><a class="btn table-action" href="{{ asset($Tender->AttachmentPath) }}" download>Download</a></td>
                                 @endif
                             </tr>
-                              @endif
-                            @endforeach 
+                            @endif
+                            @endforeach
                             @if ($electric == 0)
                             <tr class="text-center">
                                 <td colspan="5">No Records to Display.</td>
-                            </tr>                                                          
-                            @endif 
+                            </tr>
                             @endif
-                        </tbody>                   
-                        
+                            @endif
+                        </tbody>
+
                     </table>
                 </div>
                 <div id="mechanical" class="d-none">
@@ -124,32 +124,32 @@
                             <tr class="text-center">
                                 <td colspan="5">No Records to Display.</td>
                             </tr>
-                            @else 
+                            @else
                             @foreach($tender ->sortByDesc('id') as $Tender)
-                              @if($Tender->Type == "MECHANICAL EQUIPMENT")
-                              @php
-                              $mechanical ++;
-                              @endphp
+                            @if($Tender->Type == "MECHANICAL EQUIPMENT")
+                            @php
+                            $mechanical ++;
+                            @endphp
                             <tr>
                                 <td>{{ $Tender->TenderNo }}</td>
                                 <td>{{ $Tender->Description }}</td>
                                 <td>{{ $Tender->Ammount }}</td>
                                 <td>{{ $Tender->ClosedDate }}</td>
-                                @if( $Tender->AttachmentPath == null)   
+                                @if( $Tender->AttachmentPath == null)
                                 <td>No Attachment</td>
                                 @else
                                 <td><a class="btn table-action" href="{{ asset($Tender->AttachmentPath) }}" download>Download</a></td>
                                 @endif
                             </tr>
-                              @endif
-                            @endforeach  
+                            @endif
+                            @endforeach
                             @if ($mechanical == 0)
                             <tr class="text-center">
                                 <td colspan="5">No Records to Display.</td>
-                            </tr>                                                          
-                            @endif 
+                            </tr>
                             @endif
-                        </tbody>                   
+                            @endif
+                        </tbody>
                     </table>
                 </div>
                 <div id="other-equipement" class="d-none">
@@ -184,38 +184,38 @@
                         <tbody>
                             @php
                             $other = '0';
-                            @endphp                                
+                            @endphp
                             @endphp
                             @if($tender->isEmpty())
                             <tr class="text-center">
                                 <td colspan="5">No Records to Display.</td>
                             </tr>
-                            @else 
+                            @else
                             @foreach($tender ->sortByDesc('id') as $Tender)
-                              @if($Tender->Type == "OTHER MATERIALS & EQUIPMENT")
-                              @php
-                                $other ++;
-                              @endphp
+                            @if($Tender->Type == "OTHER MATERIALS & EQUIPMENT")
+                            @php
+                            $other ++;
+                            @endphp
                             <tr>
                                 <td>{{ $Tender->TenderNo }}</td>
                                 <td>{{ $Tender->Description }}</td>
                                 <td>{{ $Tender->Ammount }}</td>
                                 <td>{{ $Tender->ClosedDate }}</td>
-                                @if( $Tender->AttachmentPath == null)   
+                                @if( $Tender->AttachmentPath == null)
                                 <td>No Attachment</td>
                                 @else
                                 <td><a class="btn table-action" href="{{ asset($Tender->AttachmentPath) }}" download>Download</a></td>
                                 @endif
                             </tr>
-                              @endif
-                            @endforeach 
-                            
+                            @endif
+                            @endforeach
+
                             @if ($other == 0)
                             <tr class="text-center">
                                 <td colspan="5">No Records to Display.</td>
-                            </tr>                                                          
+                            </tr>
                             @endif
-                            @endif  
+                            @endif
                         </tbody>
                     </table>
                 </div>
@@ -223,6 +223,6 @@
         </div>
     </div>
 </section>
-<!-- Local purchases end-->
+
 
 @include('layout.fotter')

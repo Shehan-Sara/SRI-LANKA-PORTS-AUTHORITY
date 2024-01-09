@@ -119,7 +119,6 @@
                         @endif  
                   </div>
             </td>
-
             <div class="modal fade" id="Modaldelete{{ $Tender->id }}" tabindex="-1" aria-labelledby="Modaldelete{{ $Tender->id }}" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
