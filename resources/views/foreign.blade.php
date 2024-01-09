@@ -93,16 +93,7 @@
                         </tr>
                         @endif
                         @endif
-                     </tbody>
-                     <tfoot>
-                         <tr>
-                             <th>Tender No.</th>
-                             <th>Description</th>
-                             <th>BID Security Amount (Rs.)</th>
-                             <th>Closing Date and Time</th>
-                             <th>Attachment</th>
-                         </tr>
-                     </tfoot>
+                     </tbody>                    
                  </table>
              </div>
              <div id="mechanical" class="d-none">
@@ -154,16 +145,7 @@
                         </tr>
                         @endif
                         @endif
-                     </tbody>
-                     <tfoot>
-                         <tr>
-                             <th>Tender No.</th>
-                             <th>Description</th>
-                             <th>BID Security Amount (Rs.)</th>
-                             <th>Closing Date and Time</th>
-                             <th>Attachment</th>
-                         </tr>
-                     </tfoot>
+                     </tbody>                     
                  </table>
              </div>
              <div id="other-equipement" class="d-none">
@@ -217,16 +199,7 @@
                         </tr>
                         @endif
                         @endif
-                     </tbody>
-                     <tfoot>
-                         <tr>
-                             <th>Tender No.</th>
-                             <th>Description</th>
-                             <th>BID Security Amount (Rs.)</th>
-                             <th>Closing Date and Time</th>
-                             <th>Attachment</th>
-                         </tr>
-                     </tfoot>
+                     </tbody>                     
                  </table>
              </div>
          </main>
@@ -234,3 +207,5 @@
  </div>
 
  <!-- Foreign purchases end-->
+
+ @include('layout.footer');
