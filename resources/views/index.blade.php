@@ -33,37 +33,38 @@
 <!-- Slider ENd-->
 
 <!-- About Start-->
-<div class="container">
-    <div class="row align-items-center justify-content-center">
-        <div class="col-lg-5">
-            <div class="row">
-                <div class="col-12 info-box">
-                    <div class="header-style1 p-2">
-                        <h4>About Us</h4>
-                        <p class="text-justify">
-                            Established in 1918, the Port of Colombo was initially
-                            administered by the Colombo Port Commission. Over time, it
-                            underwent significant transformations, leading to the
-                            formation of the Sri Lanka Ports Authority in 1979.
-                        </p>
-                        <button class="btn-custom btn-ltr" href="">
-                            <div class="circle"></div>
-                            <p class="btn-txt">Know More</p>
-                        </button>
+<section id="about ">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-5">
+                <div class="row">
+                    <div class="col-12 info-box">
+                        <div class="header-style1 p-2">
+                            <h4>About Us</h4>
+                            <p class="text-justify">
+                                Established in 1918, the Port of Colombo was initially
+                                administered by the Colombo Port Commission. Over time, it
+                                underwent significant transformations, leading to the
+                                formation of the Sri Lanka Ports Authority in 1979.
+                            </p>
+                            <button class="btn-custom btn-ltr" href="">
+                                <div class="circle"></div>
+                                <p class="btn-txt">Know More</p>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-lg-5 position-relative">
-            <img src="{{ asset('assets/img/about.jpg') }}" alt="Port" class="info-box" id="about-image" />
-            <div class="overlay-text">
-                <h3 class="text-light text-center">75+ Years of Experience</h3>
+            <div class="col-lg-5 position-relative">
+                <img src="{{ asset('assets/img/about.jpg') }}" alt="Port" class="info-box" id="about-image" />
+                <div class="overlay-text">
+                    <h3 class="text-light text-center">75+ Years of Experience</h3>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
+</section>
 <!-- About End-->
 
 
