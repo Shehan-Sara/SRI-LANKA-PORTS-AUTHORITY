@@ -211,7 +211,6 @@ video {
 
 .container {
     position: relative;
-    margin-bottom: 50px;
     z-index: 1;
 }
 
