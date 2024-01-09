@@ -47,10 +47,7 @@ Route::middleware(['admin'])->group(function () {
 
     // User Management 
     Route::get('/users', [UserController::class, 'viewuser'])->name('AdminUsers');
-
-    Route::get('/home', function () {
-        return view('admin.home');
-    })->name('AdminHome');
+    Route::get('/home', [UserController::class, 'dashboard'])->name('AdminHome');
 
     Route::get('/massages', function () {
         return view('admin.massages');
