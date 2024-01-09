@@ -5,7 +5,7 @@
         };
     </script>
 @endif
-<div class=" mb-3">
+<div class="container-fluid">
   
     <div class="card border-0">            
         <div class="row g-0">
@@ -26,10 +26,7 @@
           </div>
       </div>            
     </div>
-  </div>
-
-
-  
+    
   <div class=" mb-3">
     <div class="card">
       <table class="table table-striped table-hover">
@@ -119,6 +116,7 @@
                         @endif  
                   </div>
             </td>
+
             <div class="modal fade" id="Modaldelete{{ $Tender->id }}" tabindex="-1" aria-labelledby="Modaldelete{{ $Tender->id }}" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
@@ -272,3 +270,4 @@
 
     </div> 
   </div>
+</div>
