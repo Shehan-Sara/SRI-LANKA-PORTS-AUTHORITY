@@ -16,18 +16,29 @@
                     <img class="mb-2" src="https://www.slpa.lk/application_resources/images/logo_1.png" alt="Company Logo">
                 </center>
                 <main class="form-signin w-100 m-auto">
-                    <form>
-                    
+                    <form method="POST" action="{{ route('login') }}">
+                    @csrf
                       <h1 class="h3 mb-3 fw-normal">Admin Login</h1>
                   
                       <div class="form-floating mb-3">
-                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" required>                        
                         <label for="floatingInput">Email address</label>
                       </div>
+                      @error('email')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
+
                       <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" required>                        
                         <label for="floatingPassword">Password</label>
                       </div>
+                      @error('password')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
+
+                      @error('error')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                   
                       <div class="form-check text-start my-3">
                         <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">

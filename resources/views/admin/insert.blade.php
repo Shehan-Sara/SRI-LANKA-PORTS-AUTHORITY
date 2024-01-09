@@ -1,4 +1,9 @@
 @include('layout.bootstrap')
+@if(session('error'))
+    <script>
+        alert("{{ session('error') }}");
+    </script>
+@endif
 
 <div class="container-fluid">
     <form class="needs-validation" action="{{ route('AddRecord') }}" method="POST" enctype="multipart/form-data">
@@ -16,16 +21,7 @@
                       </svg>
                   Home
                 </a>
-              </li>
-              <li>
-                <a href="{{ route('AdminDashboard') }}" class="nav-link link-body-emphasis">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
-                        <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.389.389 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
-                        <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.945 11.945 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0z"/>
-                      </svg>
-                  Dashboard
-                </a>
-              </li>
+              </li>              
               <li>
                 <a href="{{ route('AdminLocal') }}" class="nav-link link-body-emphasis">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mailbox" viewBox="0 0 16 16">
@@ -81,7 +77,7 @@
       <div class="container"> 
         
         <h5 class="mb-3">ADD NEW PROCUREMENT</h5>
-        <div class="card">
+        <div class="card text-bg-light">
             <div class="card-body">
                 <h5 class="card-title">General Details</h5>
 
@@ -89,6 +85,10 @@
                     <label for="inputID" class="col-sm-3 col-form-label">Tender ID</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="inputID" name="id" required>
+                      <div id="IDHelp" class="form-text">Enter a Uniqe ID</div>
+                      @error('id')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -96,13 +96,19 @@
                     <label for="inputName" class="col-sm-3 col-form-label">Display Name</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="inputName" name="name" required>
+                      @error('name')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
                   <div class="mb-3 row">
                     <label for="inputDescription" class="col-sm-3 col-form-label">Tender Description</label>
-                    <div class="col-sm-9">
-                      <input type="Text box" class="form-control" id="inputDescription" name="des" required>
+                    <div class="col-sm-9">                      
+                      <textarea class="form-control" d="inputDescription" name="Description" required></textarea>
+                      @error('des')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -110,18 +116,24 @@
                     <label for="inputDescription" class="col-sm-3 col-form-label">Tender Equipment Type</label>
                     <div class="col-sm-9">
                         <select class="form-select" aria-label="Default select example" name="type" required>
-                            <option value="" selected>Open the equipment type</option>
+                            <option value="" selected>Select the equipment type</option>
                             <option value="ELECTRICAL EQUIPMENT">ELECTRICAL EQUIPMENT</option>
                             <option value="MECHANICAL EQUIPMENT">MECHANICAL EQUIPMENT</option>
                             <option value="OTHER MATERIALS & EQUIPMENT">OTHER MATERIALS & EQUIPMENT</option>
                           </select>
+                          @error('type')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
                   <div class="mb-3 row">
                     <label for="inputPassword" class="col-sm-3 col-form-label">Bid Sec. Amount (Rs.)</label>
                     <div class="col-sm-9">
-                      <input type="Number" class="form-control" id="inputPassword" name="amount" min="0" required>
+                      <input type="Number" class="form-control" id="inputPassword" name="amount" min="0" required>                      
+                      @error('amount')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                       <div class="invalid-feedback">
                         Please select a Amount.
                       </div>
@@ -132,6 +144,9 @@
                     <label for="inputPassword" class="col-sm-3 col-form-label">Close Date</label>
                     <div class="col-sm-9">
                       <input type="date" class="form-control" id="inputPassword" name="date" required>
+                      @error('date')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -139,15 +154,13 @@
                     <label for="inputPassword" class="col-sm-3 col-form-label">Upload Document</label>
                     <div class="col-sm-9">
                       <input type="file" class="form-control" name="pdffile" id="fileInput" accept=".pdf">
+                      <div id="PDFHelp" class="form-text">Enter PDF files only</div>
+                      @error('pdffile')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
-
-                  <div class="mb-3 row">
-                    <label for="staticEmail" class="col-sm-3 col-form-label">Publishr By</label>
-                    <div class="col-sm-9">
-                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Admin Name" name="user">
-                    </div>
-                  </div>
+                  
                   
             </div>
           </div>
@@ -157,32 +170,18 @@
 
   <div class="col-md-4">
     <div class="container"> 
-      <div class="card border-0">
-        <div class="row g-0">
-            <div class="col-md-10">
-                <div class="card-body">
-                    <div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 10%"></div>
-                      </div>
-                  </div>
-            </div>
-            <div class="col-md-2">
-                <div class="card-body">
-                    10%
-                </div>
-            </div>
+      <div class="card border-0"> 
+        
+        <br>
+
+        <div class="card text-bg-info mb-3">          
+          <div class="card-body">
+            <h5 class="card-title">How to Add a Tender</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
         </div>
 
-        <div class="card mb-3 ">            
-            <div class="card-body">
-                <h5 class="card-title mb-3">Tender Preview</h5>
-                add
-            </div>
-          </div>
-
-          
-
-          <div class="card mb-3">
+          <div class="card border-danger mb-3 text-bg-light">
             <div class="card-body">
                 <h5 class="card-title">SET UP</h5>
               
@@ -195,6 +194,9 @@
                             <option value="1">LOCAL-PURCHASES</option>
                             <option value="3">OTHER-PURCHASES</option>
                           </select>
+                          @error('Category')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                     </div>
                   </div>
 
@@ -204,20 +206,32 @@
                         <select class="form-select" aria-label="Default select example" name="status" required>
                             <option value="0" selected>Active</option>
                             <option value="1">Deactive</option>
-                            <option value="2">Compleet</option>
-                            <option value="3">Three</option>
+                            <option value="2">Compleet</option>                            
                           </select>
+                          <div id="NumberHelp" class="form-text">Select visibility status</div>
+                          @error('status')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
+                    </div>
+                  </div>
+
+                  <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-4 col-form-label">Publishr By</label>
+                    <div class="col-sm-8">
+                      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ Auth::user()->name }}" name="user">
+                      
                     </div>
                   </div>
 
             </div>
           </div>
 
-          <div class="card mb-3 ">            
-            <div class="card-body">
-                <button type="submit"> Submit</button>
-              
-                
+          <div class="card mb-3 border-0 ">            
+            <div class="card-body text-end">
+              <div>
+                <button type="button" class="btn btn-outline-secondary">Cancel</button>              
+                <button type="submit" class="btn btn-success"> Add Tender</button>
+              </div>                
             </div>
           </div>
     </div>      
