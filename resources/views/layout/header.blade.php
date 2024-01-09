@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/button.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}" />
 
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
 </head>
@@ -81,10 +82,10 @@
                     <a class="nav-link" href="{{ route('other') }}">Other</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Nav</a>
+                    <a class="nav-link" href="#contact">Contact</a>
                 </li>
             </ul>
-            <a href="#" class="btn btn-brand ms-lg-3">Contact</a>
+
         </div>
     </div>
 </nav>

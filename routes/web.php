@@ -24,6 +24,11 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
+
+Route::get('/index', function () {
+    return view('index');
+});
+
 Route::get('/foreign-purchases', [PageController::class, 'foreign'])->name('foreign');
 Route::get('/local-purchases', [PageController::class, 'local'])->name('local');
 Route::get('/other-purchases', [PageController::class, 'other'])->name('other');
@@ -55,7 +60,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/massages', function () {
         return view('admin.massages');
     })->name('AdminMassages');
-
 });
 
 Route::middleware(['action'])->group(function () {
