@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 })->name('Welcome');
 
 Route::get('/login', function () {
@@ -47,6 +47,7 @@ Route::middleware(['admin'])->group(function () {
 
     // User Management 
     Route::get('/users', [UserController::class, 'viewuser'])->name('AdminUsers');
+
     Route::get('/home', [UserController::class, 'dashboard'])->name('AdminHome');
 
     Route::get('/massages', function () {
