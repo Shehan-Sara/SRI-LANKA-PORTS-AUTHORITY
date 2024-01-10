@@ -106,7 +106,7 @@
                     <label for="inputDescription" class="col-sm-3 col-form-label">Tender Description</label>
                     <div class="col-sm-9">                      
                       <textarea class="form-control" d="inputDescription" name="Description" required></textarea>
-                      @error('des')
+                      @error('Description')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                       @enderror
                     </div>
