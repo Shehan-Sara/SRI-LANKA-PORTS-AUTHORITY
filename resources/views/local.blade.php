@@ -1,15 +1,31 @@
 @include('layout.header');
 
+<div class="purchases-hero bg-cover d-flex align-items-center justify-content-center ">
+    <div class="overlay"></div>
+    <div class="row ">
+        <div class="col-12 align-items-center justify-content-center ">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb ">
+                    <li class="breadcrumb-item "><a href="">Procuirements</a></li>
+
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Local Purchases
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
 
 <section id="local-purchases">
     <div class="container-fluid">
-        <div class="row">
+        <div class="row ">
             <!-- Left Side Navigation -->
             <nav class="col-md-3 col-lg-3 position-relative d-md-block sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" onclick="showContent('electrical')">ELECTRICAL EQUIPMENTS
+                        <li class="nav-item ">
+                            <a class="nav-link active" onclick="showContent('electrical')">ELECTRICAL EQUIPMENTS
                                 <span><i class="bi bi-chevron-double-right"></i></span></a>
                         </li>
                         <li class="nav-item">
@@ -26,18 +42,8 @@
 
             <!-- Right Side Content -->
             <main role="main" class="col-md-9 col-lg-9 px-md-4">
-                <div id="electrical" class="">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="">Procuirements</a></li>
-                            <li class="breadcrumb-item">
-                                <a href="#">Local Purchases</a>
-                            </li>
-                            <li class="breadcrumb-item active" aria-current="page">
-                                Electrical Equipments
-                            </li>
-                        </ol>
-                    </nav>
+                <div id="electrical">
+
 
                     <div class="style5">
                         <h6>Electrical Equipments</h6>
@@ -85,23 +91,11 @@
                             </tr>
                             @endif
                             @endif
-                        </tbody>
-
+                        </tbody>                        
                     </table>
                 </div>
                 <div id="mechanical" class="d-none">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="">Procuirements</a></li>
-                            <li class="breadcrumb-item">
-                                <a href="#">Local Purchases</a>
-                            </li>
 
-                            <li class="breadcrumb-item active" aria-current="page">
-                                Mechanical Equipments
-                            </li>
-                        </ol>
-                    </nav>
 
                     <div class="style5">
                         <h6>Mechanical Equipments</h6>
@@ -149,24 +143,12 @@
                             </tr>
                             @endif
                             @endif
-                        </tbody>
+                        </tbody>                       
                     </table>
                 </div>
                 <div id="other-equipement" class="d-none">
 
 
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="">Procuirements</a></li>
-                            <li class="breadcrumb-item">
-                                <a href="#">Local Purchases</a>
-                            </li>
-
-                            <li class="breadcrumb-item active" aria-current="page">
-                                Other Materials and Equipments
-                            </li>
-                        </ol>
-                    </nav>
 
                     <div class="style5">
                         <h6>Other Materials and Equipments</h6>
@@ -216,7 +198,7 @@
                             </tr>
                             @endif
                             @endif
-                        </tbody>
+                        </tbody>                       
                     </table>
                 </div>
             </main>
@@ -225,4 +207,4 @@
 </section>
 
 
-@include('layout.fotter')
+@include('layout.footer');

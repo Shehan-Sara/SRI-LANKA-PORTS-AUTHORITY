@@ -42,3 +42,5 @@ function showContent(sectionId) {
     // Add the 'active' class to the clicked nav link
     $("[onclick=\"showContent('" + sectionId + "')\"]").addClass("active");
   }
+
+  

@@ -26,10 +26,10 @@ class PageController extends Controller
 
     public function other()
     {
-        $tenders = Tender::where('Category', 3) // to take other tenders
+        $tender = Tender::where('Category', 3) // to take other tenders
             ->where('Status', 0) //to take active trnders
             ->get();
-        return view('other');
+        return view('other', compact('tender'));
     }
 
 

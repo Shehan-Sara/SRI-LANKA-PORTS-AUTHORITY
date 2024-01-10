@@ -52,7 +52,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/massages', function () {
         return view('admin.massages');
     })->name('AdminMassages');
-
 });
 
 Route::middleware(['action'])->group(function () {
