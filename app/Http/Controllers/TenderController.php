@@ -21,7 +21,7 @@ class TenderController extends Controller
 
         $request->validate([
             'id' => 'required|min:1|max:30',
-            'name' => 'required|min:5|max:30',
+            'name' => 'required|min:1|max:30',
             'Description' => 'required|min:5|max:100',
             'type' => 'required',
             'amount' => 'required|numeric',
