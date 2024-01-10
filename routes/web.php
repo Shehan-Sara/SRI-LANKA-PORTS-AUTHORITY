@@ -31,8 +31,6 @@ Route::get('/other-purchases', [PageController::class, 'other'])->name('other');
 Route::post('/varify', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
-
-
 Route::middleware(['admin'])->group(function () {
 
     // tender Record View
