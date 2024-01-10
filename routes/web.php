@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/', function () {
     return view('index');
 })->name('Welcome');
@@ -22,6 +23,12 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('admin.login');
 });
+
+
+Route::get('/test', function () {
+    return view('test');
+});
+
 
 Route::get('/foreign-purchases', [PageController::class, 'foreign'])->name('foreign');
 Route::get('/local-purchases', [PageController::class, 'local'])->name('local');
