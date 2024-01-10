@@ -9,7 +9,7 @@
 
 body {
     font-family: "Montserrat", sans-serif;
-    line-height: 1.7;
+
     color: var(--bg-color-light);
 }
 
@@ -211,7 +211,6 @@ video {
 
 .container {
     position: relative;
-    z-index: 1;
 }
 
 .col-12 {
@@ -480,6 +479,7 @@ td:nth-child(5) {
 
 .custom-table td:nth-child(3) {
     width: 20%;
+    vertical-align: bottom;
 }
 
 .custom-table td:nth-child(4) {

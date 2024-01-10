@@ -1,4 +1,4 @@
-@include('layout.header');
+@include('layout.header')
 
 <!-- Slider Start-->
 
@@ -160,14 +160,17 @@
                 <div class="py-5 px-4 px-sm-5">
                     <form class="py-5">
                         <div class="form-group">
-                            <input type="text" class="form-control border-0 p-4" placeholder="Your Name" required="required" />
+                            <input type="text" class="form-control border-0 p-4" placeholder="Your Name"
+                                required="required" />
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
+                            <input type="email" class="form-control border-0 p-4" placeholder="Your Email"
+                                required="required" />
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control border-0 p-4" placeholder="Subject" required="required" />
+                            <input type="text" class="form-control border-0 p-4" placeholder="Subject"
+                                required="required" />
                         </div>
 
                         <div class="form-group">
@@ -445,4 +448,4 @@
 </section>
 <!--Featured Serveices End-->
 
-@include('layout.footer');
+@include('layout.footer')
