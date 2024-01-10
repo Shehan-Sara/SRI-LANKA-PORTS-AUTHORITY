@@ -2,10 +2,8 @@
 
 :root {
     --header-height: 3.5rem;
-
     --first-color: hsl(194, 100%, 96%);
     --text-color: #1e324e;
-
     --body-font: "Space Grotesk", sans-serif;
     --biggest-font-size: 2.375rem;
     --normal-font-size: 0.938rem;
@@ -66,29 +64,37 @@ img {
 }
 
 .nav {
+    padding: 50px;
     height: var(--header-height);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav__logo,
-.nav__toggle {
+.nav-logo,
+.nav-toggle {
     color: var(--text-color);
     display: inline-flex;
 }
 
-.nav__logo {
+.nav-logo {
     font-weight: 700;
 }
 
-.nav__toggle {
+.nav-logo img {
+    width: 80%;
+}
+
+#nav-toggle #nav-close {
+    color: red !important;
+}
+.nav-toggle {
     font-size: 1.25rem;
     cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
-    .nav__menu {
+    .nav-menu {
         position: fixed;
         background-color: var(--first-color);
         left: 0;
@@ -101,18 +107,18 @@ img {
     }
 }
 
-.nav__list {
+.nav-list {
     text-align: center;
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
 }
 
-.nav__link {
+.nav-link {
     color: var(--text-color);
 }
 
-.nav__close {
+.nav-close {
     position: absolute;
     top: 1rem;
     right: 1.5rem;
@@ -133,22 +139,22 @@ img {
     display: grid;
 }
 
-.home__container {
+.home-container {
     display: grid;
     align-content: center;
     row-gap: 2.5rem;
 }
 
-.home__data {
+.home-data {
     text-align: center;
 }
 
-.home__title {
+.home-title {
     font-size: var(--biggest-font-size);
     margin: 0.75rem 0;
 }
 
-.home__button {
+.home-button {
     margin-top: 2rem;
     display: inline-block;
     background-color: var(--text-color);
@@ -158,20 +164,20 @@ img {
     transition: 0.4s;
 }
 
-.home__button:hover {
+.home-button:hover {
     box-shadow: 0 4px 12px hsla(38, 69%, 8%, 0.2);
 }
 
-.home__img img {
+.home-img img {
     width: 230px;
     animation: floaty 1.8s infinite alternate;
 }
 
-.home__img {
+.home-img {
     justify-self: center;
 }
 
-.home__shadow {
+.home-shadow {
     width: 130px;
     height: 24px;
     background-color: hsla(38, 21%, 19%, 0.16);
@@ -181,7 +187,7 @@ img {
     animation: shadow 1.8s infinite alternate;
 }
 
-.home__footer {
+.home-footer {
     display: flex;
     justify-content: center;
     column-gap: 0.5rem;
@@ -217,29 +223,29 @@ img {
     .nav {
         height: calc(var(--header-height) + 1.5rem);
     }
-    .nav__toggle,
-    .nav__close {
+    .nav-toggle,
+    .nav-close {
         display: none;
     }
-    .nav__list {
+    .nav-list {
         flex-direction: row;
         column-gap: 3.5rem;
     }
 }
 
 @media screen and (min-width: 1024px) {
-    .home__container {
+    .home-container {
         grid-template-columns: repeat(2, 1fr);
         align-items: center;
         column-gap: 2rem;
     }
-    .home__data {
+    .home-data {
         text-align: initial;
     }
-    .home__img img {
+    .home-img img {
         width: 400px;
     }
-    .home__shadow {
+    .home-shadow {
         width: 250px;
         height: 40px;
     }
