@@ -1,8 +1,8 @@
-@include('layout.header');
+@include('layout.header')
 
 <!-- Slider Start-->
 
-<div class="slider-wrapper bg-cover d-flex align-items-center justify-content-center position-relative">
+<div class="slider-wrapper bg-cover d-flex align-items-center justify-content-center position-relative" id="home">
     <div class="main-overlay"></div>
     <!-- Background Video -->
     <video autoplay muted loop class="position-absolute top-0 start-0 w-100 h-100 bg-opacity" id="video-background">
@@ -33,7 +33,7 @@
 <!-- Slider ENd-->
 
 <!-- About Start-->
-<section id="about ">
+<section id="about">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-5">
@@ -160,14 +160,17 @@
                 <div class="py-5 px-4 px-sm-5">
                     <form class="py-5">
                         <div class="form-group">
-                            <input type="text" class="form-control border-0 p-4" placeholder="Your Name" required="required" />
+                            <input type="text" class="form-control border-0 p-4" placeholder="Your Name"
+                                required="required" />
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
+                            <input type="email" class="form-control border-0 p-4" placeholder="Your Email"
+                                required="required" />
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control border-0 p-4" placeholder="Subject" required="required" />
+                            <input type="text" class="form-control border-0 p-4" placeholder="Subject"
+                                required="required" />
                         </div>
 
                         <div class="form-group">
@@ -445,4 +448,4 @@
 </section>
 <!--Featured Serveices End-->
 
-@include('layout.footer');
+@include('layout.footer')

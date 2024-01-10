@@ -24,14 +24,22 @@ Route::get('/login', function () {
     return view('admin.login');
 });
 
+
+Route::get('/test', function () {
+    return view('test');
+});
+
+
+Route::get('/error', function () {
+    return view('slpa404');
+});
+
 Route::get('/foreign-purchases', [PageController::class, 'foreign'])->name('foreign');
 Route::get('/local-purchases', [PageController::class, 'local'])->name('local');
 Route::get('/other-purchases', [PageController::class, 'other'])->name('other');
 
 Route::post('/varify', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
-
-
 
 Route::middleware(['admin'])->group(function () {
 

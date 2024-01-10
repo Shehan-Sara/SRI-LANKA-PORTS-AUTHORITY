@@ -147,7 +147,7 @@ img {
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--bg-color-main);
+    color: var(--bg-color-main) !important;
     font-weight: 700;
 }
 
@@ -177,7 +177,6 @@ img {
 
 .slider-wrapper {
     min-height: 580px;
-    top: -100px;
 }
 
 #video-background {
