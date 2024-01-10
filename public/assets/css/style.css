@@ -446,6 +446,7 @@ td:nth-child(5) {
 }
 
 .custom-table {
+    margin-bottom: 50px;
     width: 100%;
     border-collapse: collapse;
     vertical-align: middle;
@@ -463,26 +464,28 @@ td:nth-child(5) {
     padding: 10px;
 }
 
-.custom-table a i {
+.custom-table td:nth-child(1) a i {
     color: rgb(172, 5, 5);
 }
 
 .custom-table td:nth-child(1) {
-    width: 15%;
+    width: 10%;
     text-align: center;
     font-size: 45px;
 }
 
 .custom-table td:nth-child(2) {
-    width: 50%;
+    width: 60%;
 }
 
 .custom-table td:nth-child(3) {
     width: 20%;
+    vertical-align: bottom;
+    text-align: right;
 }
 
 .custom-table td:nth-child(4) {
-    width: 15%;
+    width: 10%;
     text-align: right;
 }
 /* Team */
