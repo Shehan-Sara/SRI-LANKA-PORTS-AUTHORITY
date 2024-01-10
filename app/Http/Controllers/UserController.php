@@ -34,7 +34,7 @@ class UserController extends Controller
 
         return redirect()->back()->withInput()->withErrors(['error' => 'Invalid credentials. Check your user name and password']);
     }
-
+    //pass dashboard count values
     public function dashboard()
     {
         $userCount = User::count() ?? 0;
