@@ -78,8 +78,8 @@
                     <div class="row">
                         <div class="col-12">
 
-                            <img class="img-fluid rounded my-auto my-4" loading="lazy"
-                                src="{{ asset('assets/img/logo.png') }}" width="245" height="80" alt="Logo" />
+                            <img class="img-fluid rounded my-auto my-4" src="{{ asset('assets/img/logo.png') }}"
+                                width="245" height="80" alt="Logo" />
                             <div>
                                 <h2 class="title">SLPA - ADMIN LOGIN</h2>
                             </div>

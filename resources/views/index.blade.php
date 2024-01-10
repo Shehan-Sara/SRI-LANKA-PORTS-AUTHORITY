@@ -2,7 +2,7 @@
 
 <!-- Slider Start-->
 
-<div class="slider-wrapper bg-cover d-flex align-items-center justify-content-center position-relative">
+<div class="slider-wrapper bg-cover d-flex align-items-center justify-content-center position-relative" id="home">
     <div class="main-overlay"></div>
     <!-- Background Video -->
     <video autoplay muted loop class="position-absolute top-0 start-0 w-100 h-100 bg-opacity" id="video-background">
@@ -33,7 +33,7 @@
 <!-- Slider ENd-->
 
 <!-- About Start-->
-<section id="about ">
+<section id="about">
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-lg-5">
