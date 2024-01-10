@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tender;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,7 +19,16 @@ class UserController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/home');
+
+            $userCount = User::count() ?? 0;
+
+            // Get the counts for different categories in the Tender model
+            $localCount = Tender::where('Category', 1)->count() ?? 0;
+            $foreignCount = Tender::where('Category', 2)->count() ?? 0;
+            $otherCount = Tender::where('Category', 3)->count() ?? 0;
+
+            // Pass the counts to the view
+            return view('admin.home')->with(compact('userCount', 'localCount', 'foreignCount', 'otherCount'));
         }
 
         return redirect()->back()->withInput()->withErrors(['error' => 'Invalid credentials. Check your user name and password']);
@@ -69,6 +79,19 @@ class UserController extends Controller
     public function adduser()
     {
         return view('admin.adduser');
+    }
+
+    public function dashboard()
+    {
+        $userCount = User::count() ?? 0;
+
+        // Get the counts for different categories in the Tender model
+        $localCount = Tender::where('Category', 1)->count() ?? 0;
+        $foreignCount = Tender::where('Category', 2)->count() ?? 0;
+        $otherCount = Tender::where('Category', 3)->count() ?? 0;
+
+        // Pass the counts to the view
+        return view('admin.home')->with(compact('userCount', 'localCount', 'foreignCount', 'otherCount'));
     }
 
 }
