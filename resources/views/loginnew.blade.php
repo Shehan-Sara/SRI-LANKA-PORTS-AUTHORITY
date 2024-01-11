@@ -132,7 +132,7 @@
                             <div class="col-12">
                                 <div class="d-grid">
                                     <button class="btn button-sumbit btn-primary" type="submit">
-                                        Log
+                                        Login
                                     </button>
                                 </div>
                             </div>
