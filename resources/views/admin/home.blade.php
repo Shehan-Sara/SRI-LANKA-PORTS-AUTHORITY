@@ -120,7 +120,7 @@
               </div>
               <div class="col-md-3">
                   <div class="card-body">
-                      <img src="images/Admin.svg" width="80%" alt="...">
+                      <img src="images/wow.gif" width="80%" alt="Image">
                   </div>
               </div>
           </div>
