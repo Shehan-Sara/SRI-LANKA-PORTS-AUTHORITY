@@ -60,6 +60,15 @@
         margin-top: 20px;
         font-weight: 600;
     }
+
+    .return-btn a,
+    .return-btn i {
+        vertical-align: middle;
+    }
+
+    .return-btn a:hover {
+        color: rgb(230, 179, 27);
+    }
 </style>
 
 <section class="p-3 p-md-4 p-xl-5">
@@ -131,7 +140,7 @@
                     </form>
                     <div class="row">
                         <hr class="border-secondary-subtle" />
-                        <div class="col-6">
+                        <div class="col-6 return-btn">
                             <a class="my-4" href="{{ Route('Welcome') }}"><i class="bi bi-arrow-left-circle"></i>
                                 Return Home</a>
                         </div>
