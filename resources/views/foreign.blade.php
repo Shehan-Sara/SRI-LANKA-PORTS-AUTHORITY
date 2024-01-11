@@ -2,7 +2,7 @@
 
 
 
- <div class="purchases-hero bg-cover d-flex align-items-center justify-content-center ">
+ <div class="purchases-hero bg-cover d-flex align-items-center justify-content-center">
      <div class="main-overlay"></div>
      <div class="row ">
          <div class="col-12 align-items-center justify-content-center ">
