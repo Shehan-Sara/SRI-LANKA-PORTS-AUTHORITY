@@ -132,7 +132,8 @@
                     <div class="row">
                         <hr class="border-secondary-subtle" />
                         <div class="col-6">
-                            <a class="my-4" href="{{Route ('Welcome')}}"><i class="bi bi-arrow-left-circle" ></i> Return Home</a>
+                            <a class="my-4" href="{{ Route('Welcome') }}"><i class="bi bi-arrow-left-circle"></i>
+                                Return Home</a>
                         </div>
                         <div class="col-6">
                             <div class="text-end">

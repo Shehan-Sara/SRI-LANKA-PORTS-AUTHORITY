@@ -7,7 +7,6 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb ">
                     <li class="breadcrumb-item "><a href="">Procuirements</a></li>
-
                     <li class="breadcrumb-item active" aria-current="page">
                         Other
                     </li>
@@ -23,8 +22,6 @@
 <div class="container" id="other">
     <div class="row">
         <div class="col-12">
-
-
             <div class="style5">
                 <h6>Other</h6>
             </div>
@@ -41,10 +38,10 @@
                                     <tr>
                                         <td>
                                             @if ($Tender->AttachmentPath == null)
-                                                <p><i class="bi bi-filetype-pdf"></i></p>
+                                                <p class="attachment-icon"><i class="bi bi-filetype-pdf"></i></p>
                                             @else
-                                                <a href="{{ asset($Tender->AttachmentPath) }}" target="_blank"><i
-                                                        class="bi bi-filetype-pdf"></i></a>
+                                                <a class="attachment-icon" href="{{ asset($Tender->AttachmentPath) }}"
+                                                    target="_blank"><i class="bi bi-filetype-pdf"></i></a>
                                             @endif
                                         </td>
                                         <td>{{ $Tender->Description }}</td>
