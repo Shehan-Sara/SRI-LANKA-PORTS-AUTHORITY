@@ -76,7 +76,7 @@
             <div class="col-12 col-md-6 btn-custom ">
                 <div class="p-3 p-md-4 p-xl-5">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 align-items-center justify-content-center text-center d-flex flex-column">
 
                             <img class="img-fluid rounded my-auto my-4" src="{{ asset('assets/img/logo.png') }}"
                                 width="245" height="80" alt="Logo" />
