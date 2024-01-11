@@ -146,7 +146,13 @@
                             
                   <tr>
                     <th scope="row">{{$num}}</th>                    
-                    <td>{{ $User->name }}</td>
+                       
+                    @if ($User->email == Auth::user()->email)
+                        <td> <span style="color: rgb(41, 8, 192);"> {{ $User->name }} (You) </span> </td>
+                    @else
+                         <td>{{ $User->name }}</td>
+                    @endif                                     
+                    
                     <td>{{ $User->email }}</td>
                     <td>              
                       @if($User->admin == 0)

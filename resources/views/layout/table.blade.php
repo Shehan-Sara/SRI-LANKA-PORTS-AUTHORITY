@@ -5,8 +5,7 @@
         };
     </script>
 @endif
-<div class=" mb-3">
-  
+  <div class=" mb-3">  
     <div class="card border-0">            
         <div class="row g-0">
           <div class="col-md-10">
