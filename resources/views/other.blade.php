@@ -1,7 +1,7 @@
 @include('layout.header');
 
 <div class="purchases-hero bg-cover d-flex align-items-center justify-content-center ">
-    <div class="overlay"></div>
+    <div class="main-overlay"></div>
     <div class="row ">
         <div class="col-12 align-items-center justify-content-center ">
             <nav aria-label="breadcrumb">
