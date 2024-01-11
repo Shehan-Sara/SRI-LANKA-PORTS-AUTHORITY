@@ -30,10 +30,6 @@ Route::get('/test', function () {
 });
 
 
-Route::get('/error', function () {
-    return view('slpa404');
-});
-
 Route::get('/foreign-purchases', [PageController::class, 'foreign'])->name('foreign');
 Route::get('/local-purchases', [PageController::class, 'local'])->name('local');
 Route::get('/other-purchases', [PageController::class, 'other'])->name('other');
