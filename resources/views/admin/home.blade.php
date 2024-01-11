@@ -102,7 +102,7 @@
     <div class="col-md-3">
       <div class="card-counter info">
         <i class="fa fa-users"></i>
-        <span class="count-numbers">{{ $userCount }}</span>
+        <span class="count-numbers">{{ $userCount - 1 }}</span>
         <span class="count-name">Users</span>
       </div>
     </div>
@@ -157,8 +157,9 @@
               </button>
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-              <div class="accordion-body">
-                Custome 404 Added
+              <div class="accordion-body">                
+                <li>Custome 404 Added</li>
+                <li>New Login added</li>
               </div>
             </div>
           </div>

@@ -32,7 +32,7 @@ class UserController extends Controller
             return view('admin.home')->with(compact('userCount', 'localCount', 'foreignCount', 'otherCount'));
         }
 
-        return redirect()->back()->withInput()->withErrors(['error' => 'Invalid credentials. Check your user name and password']);
+        return redirect()->back()->withInput()->withErrors(['error' => 'Invalid credentials. Check your user E-Mail and Password']);
     }
     //pass dashboard count values
     public function dashboard()
@@ -56,8 +56,19 @@ class UserController extends Controller
 
     public function userdelete($id)
     {
-        $record = User::orderBy('id', 'asc')->find($id);
-        $record->delete();
+        // Find the user record by ID
+        $record = User::find($id);
+
+        // Check if the email is the one you want to prevent from deletion
+        if ($record && $record->email == 'mainadmin99@slpa.lk') {
+            return redirect()->back()->with('error', 'Cannot delete Main Admin');
+        }
+
+        // If the email is not the one to be prevented, delete the user record
+        if ($record) {
+            $record->delete();
+        }
+
         return redirect()->back();
     }
 
