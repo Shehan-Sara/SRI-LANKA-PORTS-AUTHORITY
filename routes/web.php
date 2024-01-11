@@ -21,18 +21,9 @@ Route::get('/', function () {
 })->name('Welcome');
 
 Route::get('/login', function () {
-    return view('admin.login');
+    return view('loginnew');
 });
 
-
-Route::get('/test', function () {
-    return view('test');
-});
-
-
-Route::get('/error', function () {
-    return view('slpa404');
-});
 
 Route::get('/foreign-purchases', [PageController::class, 'foreign'])->name('foreign');
 Route::get('/local-purchases', [PageController::class, 'local'])->name('local');
@@ -41,7 +32,7 @@ Route::get('/other-purchases', [PageController::class, 'other'])->name('other');
 Route::post('/varify', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 
-Route::middleware(['admin'])->group(function () {
+Route::middleware(['admin'])->prefix('admin')->group(function () {
 
     // tender Record View
     Route::get('/localpurchase', [TenderController::class, 'viewLocal'])->name('AdminLocal');
@@ -63,7 +54,7 @@ Route::middleware(['admin'])->group(function () {
     })->name('AdminMassages');
 });
 
-Route::middleware(['action'])->group(function () {
+Route::middleware(['action'])->prefix('admin')->group(function () {
     Route::get('/recorddelete/{id}', [TenderController::class, 'deleteRecord'])->name('DeleteRecord');
 
     Route::get('/newuser', [UserController::class, 'adduser'])->name('adduser');

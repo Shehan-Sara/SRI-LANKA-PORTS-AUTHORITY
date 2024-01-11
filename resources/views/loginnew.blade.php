@@ -1,11 +1,10 @@
 <style>
     @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
     @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css");
-    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
 
     body {
-        font-family: "Montserrat", sans-serif;
+        font-family: 'Courier New', Courier, monospace;
     }
 
     a {
@@ -61,11 +60,6 @@
         margin-top: 20px;
         font-weight: 600;
     }
-
-    .return-home span,
-    .return-home i {
-        vertical-align: middle;
-    }
 </style>
 
 <section class="p-3 p-md-4 p-xl-5">
@@ -82,7 +76,7 @@
             <div class="col-12 col-md-6 btn-custom ">
                 <div class="p-3 p-md-4 p-xl-5">
                     <div class="row">
-                        <div class="col-12 align-items-center justify-content-center text-center d-flex flex-column">
+                        <div class="col-12">
 
                             <img class="img-fluid rounded my-auto my-4" src="{{ asset('assets/img/logo.png') }}"
                                 width="245" height="80" alt="Logo" />
@@ -129,7 +123,7 @@
                             <div class="col-12">
                                 <div class="d-grid">
                                     <button class="btn button-sumbit btn-primary" type="submit">
-                                        Login
+                                        Log
                                     </button>
                                 </div>
                             </div>
@@ -137,10 +131,9 @@
                     </form>
                     <div class="row">
                         <hr class="border-secondary-subtle" />
-                        <div class="col-6 return-home">
-                            <a class="my-4"><i class="bi bi-arrow-left-circle"></i>
-                                <span>
-                                    Return Home </span></a>
+                        <div class="col-6">
+                            <a class="my-4" href="{{ Route('Welcome') }}"><i class="bi bi-arrow-left-circle"></i>
+                                Return Home</a>
                         </div>
                         <div class="col-6">
                             <div class="text-end">

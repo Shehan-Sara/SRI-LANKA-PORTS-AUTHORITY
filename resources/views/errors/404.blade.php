@@ -13,12 +13,12 @@
 <body>
     <header class="header">
         <nav class="nav container">
-            <a href="#" class="nav-logo"> <img src="{{ asset('assets/img/logo.png') }}" alt=""> </a>
+            <a href="{{Route ('Welcome')}}" class="nav-logo"> <img src="{{ asset('assets/img/logo.png') }}" alt="Logo"> </a>
 
             <div class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Home</a>
+                        <a href="{{Route ('Welcome')}}" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">About</a>
@@ -49,7 +49,7 @@
                         We can't seem to find the page <br />
                         you are looking for.
                     </p>
-                    <a href="#" class="home-button"> Go Home </a>
+                    <a href="{{Route ('Welcome')}}" class="home-button"> Go Home </a>
                 </div>
 
                 <div class="home-img">
