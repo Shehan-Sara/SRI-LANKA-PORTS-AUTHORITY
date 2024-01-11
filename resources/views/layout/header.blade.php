@@ -15,12 +15,13 @@
     <link rel="stylesheet" href="{{ asset('assets/css/button.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}" />
 
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
 </head>
 
 <!-- Top Navigation Start-->
-<nav class="top-nav" id="home">
+<nav class="top-nav">
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-auto">
@@ -55,16 +56,17 @@
 <!-- Main Navigation Bar Start-->
 <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{ route('Welcome') }}">
             <img src="{{ asset('assets/img/logo.png') }}" alt="LOGO" />
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
+                    <a class="nav-link" href="{{ route('Welcome') }}">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#about">About</a>
@@ -81,10 +83,10 @@
                     <a class="nav-link" href="{{ route('other') }}">Other</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact Nav</a>
+                    <a class="nav-link" href="#contact">Contact</a>
                 </li>
             </ul>
-            <a href="#" class="btn btn-brand ms-lg-3">Contact</a>
+
         </div>
     </div>
 </nav>

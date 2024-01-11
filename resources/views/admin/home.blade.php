@@ -69,90 +69,118 @@
 
             <br><br><br><br><br><br><br><br><br><br><br><br><br>
           </div>
-    </div>
+    </div> 
     
-    <div class="col-md-6">
-        <div class="container">
-            <div class="card mb-3 border-0" style="max-width: 780px;">
-                <div class="row g-0">
-                    <div class="col-md-9">
-                        <h5 class="card-title">Welcome Back {{ Auth::user()->name }}</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card-body">
-                            <img src="images/Admin.svg" width="80%" alt="...">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>      
+    <div class="col-md-10">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+<div class="container mb-5">
+    <div class="row">
+    <div class="col-md-3">
+      <div class="card-counter primary">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <span class="count-numbers">{{ $localCount }}</span>
+        <span class="count-name">Local</span>
+      </div>
     </div>
 
-    <div class="col-md-4">
-        <div class="container-fluid">
-            <div class="card mb-2 border-0" style="max-width: 580px;">
-                <div class="row g-0">
-                    <div class="col-md-7">
-                        
-                        <h5 class="card-title">S.L.P.A V 1.1 is HERE</h5>
-                        <p class="card-text">This is a wider This content is a little bit longer.</p>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="card-body">
-                            <img src="images/wow.gif" width="100%" alt="...">
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="col-md-3">
+      <div class="card-counter danger">
+        <i class="fa-solid fa-plane"></i>
+        <span class="count-numbers">{{ $foreignCount }}</span>
+        <span class="count-name">Forign</span>
+      </div>
+    </div>
 
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                      Whats New
-                    </button>
-                  </h2>
-                  <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <ul>
-                        <li>Add/Remove/Edit Tenders</li>
-                        <li>Add/Remove/Edit Users</li>
-                        <li>Add/Remove/Edit Tenders</li>
-                      </ul>
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                      How to Use
-                    </button>
-                  </h2>
-                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                      Notices
-                    </button>
-                  </h2>
-                  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
-                </div>
+    <div class="col-md-3">
+      <div class="card-counter success">
+        <i class="fa-solid fa-newspaper"></i>
+        <span class="count-numbers">{{ $otherCount }}</span>
+        <span class="count-name">Other</span>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card-counter info">
+        <i class="fa fa-users"></i>
+        <span class="count-numbers">{{ $userCount - 1 }}</span>
+        <span class="count-name">Users</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+<div class="col-md-7">
+  <div class="container">
+      <div class="card mb-3 border-0" style="max-width: 780px;">
+          <div class="row g-0">
+              <div class="col-md-9">
+                  <h5 class="card-title">Welcome Back {{ Auth::user()->name }}</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
               </div>
-        </div>      
-    </div>
+              <div class="col-md-3">
+                  <div class="card-body">
+                      <img src="images/Admin.svg" width="80%" alt="...">
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+  </div>      
+</div>
 
+<div class="col-md-5">
+  <div class="container-fluid">           
+
+      <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Main Features
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <ul>
+                  <li>Add/Remove/Edit Tenders</li>
+                  <li>Add/Remove/Edit Users</li>
+                  <li>Add/Remove/Edit Tenders</li>
+                </ul>
+                
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Whats New
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">                
+                <li>Custome 404 Added</li>
+                <li>New Login added</li>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Notices
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>      
+</div>
+</div>
+
+    </div>
 </div>
   </div>
   

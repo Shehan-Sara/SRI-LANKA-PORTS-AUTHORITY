@@ -21,7 +21,7 @@ class TenderController extends Controller
 
         $request->validate([
             'id' => 'required|min:1|max:30',
-            'name' => 'required|min:5|max:30',
+            'name' => 'required|min:1|max:30',
             'Description' => 'required|min:5|max:100',
             'type' => 'required',
             'amount' => 'required|numeric',
@@ -102,7 +102,7 @@ class TenderController extends Controller
         $request->validate([
             'id' => 'required|min:1|max:30',
             'name' => 'required|min:5|max:30',
-            'Description' => 'required|min:5|max:100',
+            'Description' => 'required|min:5|max:200',
             'type' => 'required',
             'Category' => 'required',
             'amount' => 'required|numeric',
@@ -136,9 +136,10 @@ class TenderController extends Controller
 
             // Set the AttachmentPath in the model
             $tender->AttachmentPath = '/pdf/' . $fileName;
+            $tender->AttachementName = $fileName;
         }
 
-        $tender->AttachementName = $fileName;
+
         $tender->Status = $request->status;
         $tender->ClosedDate = $request->date;
         $tender->Author = $request->user;
