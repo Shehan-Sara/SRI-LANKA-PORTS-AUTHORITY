@@ -156,7 +156,7 @@
                     <td>{{ $User->email }}</td>
                     <td>              
                       @if($User->admin == 0)
-                          <p> <span class="badge rounded-pill text-bg-success ">Manager</span></p>
+                          <p> <span class="badge rounded-pill text-bg-success ">Default User</span></p>
                        @elseif($User->admin == 1)
                           <p> <span class="badge rounded-pill text-bg-danger  ">Admin</span></p>
                        @else
@@ -213,8 +213,13 @@
                   @endforeach
                           @endif
                   
-                </tbody>
+                </tbody>                
               </table>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-end">
+                  {{$user->links()}}
+                </ul>
+              </nav>
             </div> 
           </div>
 
@@ -223,4 +228,3 @@
 
 </div>
   </div>
-  

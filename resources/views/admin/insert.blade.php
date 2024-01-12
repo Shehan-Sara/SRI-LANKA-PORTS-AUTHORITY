@@ -177,7 +177,14 @@
         <div class="card text-bg-info mb-3">          
           <div class="card-body">
             <h5 class="card-title">How to Add a Tender</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">
+              <ol>
+                <li><strong>Fill the all nessasary fields.</strong></li>
+                <li><strong>In setup section select procrument type.</strong></li>
+                <dd>If you are posting a other procrument, Pleace select a Type and Ammount (It will not visible to users).</dd>
+                <li><strong>Set the visibility and Post.</strong></li>
+              </ol>
+            </p>
           </div>
         </div>
 
@@ -201,11 +208,11 @@
                   </div>
 
                   <div class="mb-3 row">
-                    <label for="inputDescription" class="col-sm-4 col-form-label">Tender Status</label>
+                    <label for="inputDescription" class="col-sm-4 col-form-label">Tender visibility </label>
                     <div class="col-sm-8">
                         <select class="form-select" aria-label="Default select example" name="status" required>
                             <option value="0" selected>Active</option>
-                            <option value="1">Deactive</option>
+                            <option value="1">Pending</option>
                             <option value="2">Compleet</option>                            
                           </select>
                           <div id="NumberHelp" class="form-text">Select visibility status</div>
