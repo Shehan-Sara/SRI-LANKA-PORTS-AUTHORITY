@@ -158,23 +158,36 @@
             </div>
             <div class="col-lg-7" id="quote-box">
                 <div class="py-5 px-4 px-sm-5">
-                    <form class="py-5">
+                    <form class="py-5" method="post" action="{{route ('sendmassage')}}">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control border-0 p-4" placeholder="Your Name"
-                                required="required" />
+                            <input type="text" class="form-control border-0 p-4" placeholder="Your Name" name="name"
+                                required="required">
+                                @error('name')
+                            <div class="invalid-feedback d-block">{{ $name }}</div>
+                      @enderror
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control border-0 p-4" placeholder="Your Email"
+                            <input type="email" class="form-control border-0 p-4" placeholder="Your Email" name="mail"
                                 required="required" />
+                                @error('mail')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                         </div>
 
                         <div class="form-group">
-                            <input type="text" class="form-control border-0 p-4" placeholder="Subject"
+                            <input type="text" class="form-control border-0 p-4" placeholder="Subject" name="subject"
                                 required="required" />
+                                @error('subject')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                         </div>
 
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message" rows="3"></textarea>
+                            <textarea class="form-control" placeholder="Your Message" rows="3" name="massage"></textarea>
+                            @error('massage')
+                            <div class="invalid-feedback d-block">{{ $message }}</div>
+                      @enderror
                         </div>
 
                         <div class="d-flex justify-content-center">
@@ -182,6 +195,11 @@
                                 Get A Quote
                             </button>
                         </div>
+
+                        @if (session('success'))
+                            <div class="valid-feedback d-block">{{ session('success') }}</div>
+                        @endif
+
                     </form>
                 </div>
             </div>
