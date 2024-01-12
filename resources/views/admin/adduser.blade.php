@@ -70,7 +70,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">General Details</h5>
+                    <h5 class="card-title">User Registration</h5>
 
                     <script>
                       $(document).ready(function () {

@@ -65,17 +65,161 @@
           </div>
     </div>
     
-    <div class="col-md-6">
+    <div class="col-md-10">
         <div class="container">
-            
-            
-        </div>      
-    </div>
 
-    <div class="col-md-4">
-        <div class="container-fluid">
-            
+          <div class=" mb-3">  
+            <div class="card border-0">
 
+                <div class="row g-0">
+                  <div class="col-md-10">
+                    <div class="card-body">
+                      
+                    </div>
+                  </div>
+
+                  <div class="col-md-2">
+                      <div class="card-body text-end">
+                        <button type="button" href="" class="btn btn-outline-dark" disabled>
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                            <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5"/>
+                            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"/>
+                          </svg>
+                          Respond</button>
+                      </div>
+                  </div>
+
+
+              </div>            
+            </div>
+          </div>
+
+
+          <div class=" mb-2"> 
+                <div class="row g-0">
+
+                  <div class="col-md-4">
+
+                        <div class="mb-1">
+                          <div class="card" style="height: 90px;">
+                            <div class="card-body">
+                              <h5 class="card-title placeholder-glow">
+                                <span class="placeholder col-6"></span>
+                              </h5>
+                              <p class="card-text placeholder-glow">
+                                <span class="placeholder col-10"></span>
+                              </p>                           
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mb-1">
+                          <div class="card" style="height: 90px;">
+                            <div class="card-body">
+                              <h5 class="card-title placeholder-glow">
+                                <span class="placeholder col-6"></span>
+                              </h5>
+                              <p class="card-text placeholder-glow">
+                                <span class="placeholder col-10"></span>
+                              </p>                           
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mb-1">
+                          <div class="card" style="height: 90px;">
+                            <div class="card-body">
+                              <h5 class="card-title placeholder-glow">
+                                <span class="placeholder col-6"></span>
+                              </h5>
+                              <p class="card-text placeholder-glow">
+                                <span class="placeholder col-10"></span>
+                              </p>                           
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mb-1">
+                          <div class="card" style="height: 90px;">
+                            <div class="card-body">
+                              <h5 class="card-title placeholder-glow">
+                                <span class="placeholder col-6"></span>
+                              </h5>
+                              <p class="card-text placeholder-glow">
+                                <span class="placeholder col-10"></span>
+                              </p>                           
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="mb-1">
+                          <div class="card" style="height: 90px;">
+                            <div class="card-body">
+                              <h5 class="card-title placeholder-glow">
+                                <span class="placeholder col-6"></span>
+                              </h5>
+                              <p class="card-text placeholder-glow">
+                                <span class="placeholder col-10"></span>
+                              </p>                           
+                            </div>
+                          </div>
+                        </div>
+
+                      
+                  </div>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-7">
+                    <div class="card">
+                      <div class="card-body">
+
+                        <div class="row mb-3">
+                          <label for="inputEmail3" class="col-sm-3 col-form-label">Customer Name</label>
+                          <div class="col-sm-9">
+                            <h5 class="card-title placeholder-glow">
+                              <span class="placeholder col-8"></span>
+                            </h5>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="inputEmail3" class="col-sm-3 col-form-label">Customer E Mail</label>
+                          <div class="col-sm-9">
+                            <h5 class="card-title placeholder-glow">
+                              <span class="placeholder col-7"></span>
+                            </h5>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="inputEmail3" class="col-sm-3 col-form-label">Mail Subject</label>
+                          <div class="col-sm-9">
+                            <h5 class="card-title placeholder-glow">
+                              <span class="placeholder col-10"></span>
+                            </h5>
+                          </div>
+                        </div>
+
+                        <div class="card" style="height: 300px;">
+                          <div class="card-body">
+                            <p class="card-text placeholder-glow">
+                              <span class="placeholder col-7"></span>
+                              <span class="placeholder col-4"></span>
+                              <span class="placeholder col-4"></span>
+                              <span class="placeholder col-6"></span>
+                              <span class="placeholder col-8"></span>
+                            </p>
+                          </div>
+                        </div>
+                        
+
+                      </div>
+                    </div>
+                  </div>
+
+              </div>         
+          </div>
+            
+            
         </div>      
     </div>
 
