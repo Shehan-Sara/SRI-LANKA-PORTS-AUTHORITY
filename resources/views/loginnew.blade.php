@@ -60,6 +60,15 @@
         margin-top: 20px;
         font-weight: 600;
     }
+
+    .return-btn a,
+    .return-btn i {
+        vertical-align: middle;
+    }
+
+    .return-btn a:hover {
+        color: rgb(230, 179, 27);
+    }
 </style>
 
 <section class="p-3 p-md-4 p-xl-5">
@@ -76,7 +85,7 @@
             <div class="col-12 col-md-6 btn-custom ">
                 <div class="p-3 p-md-4 p-xl-5">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 align-items-center justify-content-center text-center d-flex flex-column">
 
                             <img class="img-fluid rounded my-auto my-4" src="{{ asset('assets/img/logo.png') }}"
                                 width="245" height="80" alt="Logo" />
@@ -123,7 +132,7 @@
                             <div class="col-12">
                                 <div class="d-grid">
                                     <button class="btn button-sumbit btn-primary" type="submit">
-                                        Log
+                                        Login
                                     </button>
                                 </div>
                             </div>
@@ -131,8 +140,9 @@
                     </form>
                     <div class="row">
                         <hr class="border-secondary-subtle" />
-                        <div class="col-6">
-                            <a class="my-4" href="{{Route ('Welcome')}}"><i class="bi bi-arrow-left-circle" ></i> Return Home</a>
+                        <div class="col-6 return-btn">
+                            <a class="my-4" href="{{ Route('Welcome') }}"><i class="bi bi-arrow-left-circle"></i>
+                                Return Home</a>
                         </div>
                         <div class="col-6">
                             <div class="text-end">

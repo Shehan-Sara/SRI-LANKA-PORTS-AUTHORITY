@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MassageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\TenderController;
 use App\Http\Controllers\UserController;
@@ -24,13 +25,13 @@ Route::get('/login', function () {
     return view('loginnew');
 });
 
-
 Route::get('/foreign-purchases', [PageController::class, 'foreign'])->name('foreign');
 Route::get('/local-purchases', [PageController::class, 'local'])->name('local');
 Route::get('/other-purchases', [PageController::class, 'other'])->name('other');
 
 Route::post('/varify', [UserController::class, 'login'])->name('login');
 Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+Route::post('/sendmassage', [MassageController::class, 'sendmassage'])->name('sendmassage');
 
 Route::middleware(['admin'])->prefix('admin')->group(function () {
 
@@ -49,9 +50,9 @@ Route::middleware(['admin'])->prefix('admin')->group(function () {
 
     Route::get('/home', [UserController::class, 'dashboard'])->name('AdminHome');
 
-    Route::get('/massages', function () {
-        return view('admin.massages');
-    })->name('AdminMassages');
+    Route::get('/massages', [MassageController::class, 'viewmassage'])->name('AdminMassages');
+    Route::get('/msgdelete/{id}', [MassageController::class, 'deletemassage'])->name('deletemassage');
+
 });
 
 Route::middleware(['action'])->prefix('admin')->group(function () {

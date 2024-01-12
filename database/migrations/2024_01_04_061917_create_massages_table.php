@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('email');
+            $table->string('subject');
             $table->string('massage');
             $table->boolean('read')->default(0);
             $table->timestamps();

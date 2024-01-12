@@ -139,12 +139,13 @@ class TenderController extends Controller
             $tender->AttachementName = $fileName;
         }
 
-
         $tender->Status = $request->status;
         $tender->ClosedDate = $request->date;
         $tender->Author = $request->user;
         $tender->save();
 
+
+        //redirecting to correct tender view
         if ($request->Category == '1') {
             return redirect()->route('AdminLocal')->with('success', 'Local Tender added successfully!');
         } else if ($request->Category == '2') {
@@ -187,6 +188,7 @@ class TenderController extends Controller
                     File::delete($filePath);
                 }
             }
+            //deleting record
             $record->delete();
             return redirect()->back();
         }

@@ -116,11 +116,11 @@
           <div class="row g-0">
               <div class="col-md-9">
                   <h5 class="card-title">Welcome Back {{ Auth::user()->name }}</h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">Good morning! We are pleased to inform you that the <strong>SLPA V 1.0</strong> System is currently up to date, and all features are functioning smoothly. You may proceed with confidence to perform your tasks.</p>
               </div>
               <div class="col-md-3">
                   <div class="card-body">
-                      <img src="images/Admin.svg" width="80%" alt="...">
+                      <img src="{{ asset('images/Admin.svg') }}" width="80%" alt="Image">
                   </div>
               </div>
           </div>
@@ -171,7 +171,7 @@
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                If you encounter any errors or bugs within the system, kindly reach out to <a href="mailto:damithmthennakoon@gmail.com?subject=Error%20in%20SLPA.lk"><strong>damithmthennakoon@gmail.com.</strong></a> We kindly request that you ensure to capture a <strong>screenshot, error message, or URL</strong> to facilitate the development process. Your cooperation is greatly appreciated.
               </div>
             </div>
           </div>
